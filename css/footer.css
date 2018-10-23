@@ -1,10 +1,10 @@
 footer {
-    height: 50px;
+    height: 60px;
     background-color: lightgray;
 }
 
-footer>div {
-    margin: 0 10px;
+.btns, .txt {
+    margin: 10px 10px 0px 10px;
 }
 
 footer div:not(:last-child) {
