@@ -30,6 +30,7 @@ var gImgs = [
 
 var gCanvas = document.querySelector('canvas');
 var gCtx = gCanvas.getContext('2d');
+var gMeme;
 
 function getImgById(id) {
     var imgIdx = gImgs.findIndex(function (img) {
@@ -70,4 +71,17 @@ function getFontSize(elFontSize) {
 
 function setImgOnCanvas(img){
     gCtx.drawImage(img,10,10);
+}
+
+function createMeme(id){
+    gMeme = {
+        id: id,
+        txts: [
+            {
+                // text ,
+                // color ,
+                // font,
+                // size
+        }]
+    }
 }

@@ -1,2 +1,6 @@
 @import url('helpers.css');
 @import url('img.css');
+
+body {
+    background-image: linear-gradient(to right, lightblue, lightgreen);
+}

@@ -7,12 +7,13 @@ function init(){
 function renderImgs() {
     var elHtmlStr = '';
     gImgs.forEach((element) => {
-        elHtmlStr += `<div class="imgDiv flex"><img src="${element.imgUrl}" onclick="onSetImgOnCanvas(this)" /></div>`
+        elHtmlStr += `<div class="imgDiv flex"><img src="${element.imgUrl}" onclick="onSetImgOnCanvas(this, ${element.id})" /></div>`
     });
     document.querySelector('.gallery-container').innerHTML = elHtmlStr;
 }
 
-function onSetImgOnCanvas(elImg){
+function onSetImgOnCanvas(elImg, id){
+    createMeme(id);
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
     clearCanvas();
