@@ -3,5 +3,8 @@
 var gImgs = [
     {id}
 ];
-var 
+
+var gKeyWords = [
+
+]; 
 
