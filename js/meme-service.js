@@ -76,12 +76,16 @@ function setImgOnCanvas(img){
 function createMeme(id){
     gMeme = {
         id: id,
-        txts: [
-            {
-                // text ,
-                // color ,
-                // font,
-                // size
-        }]
+        txts: []
     }
+}
+
+function addTextToMeme(txt, color, font, size){
+    var memeTxt =  {
+        txt,
+        color,
+        font,
+        size
+    }
+    gMeme.txts.push(memeTxt);
 }
