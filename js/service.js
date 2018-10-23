@@ -28,6 +28,7 @@ var gImgs = [
     {id: 25, imgUrl: 'img/25.jpg', kw: ['movies']},
 ]; 
 
+<<<<<<< HEAD
 function getImgById(id){
     var imgIdx = gImgs.findIndex(function(img){
         return id === img.id;
@@ -49,3 +50,12 @@ function filterImgByKw(kw){
     })
     return filteredImgs;
 }
+=======
+var gKeyWords = [
+    'grumpy', 'politics', 'trump', 'happy', 'music',
+    'pets', 'dog', 'cute', 'baby', 'success', 'cat', 
+    'sleep','expert', 'lecture', 'funny', 'movies', 'satisfied',
+    'kids', 'quotes', 'sarcasm', 'dancing', 'tv', 
+    'shock', 'sports', 'struggle', 'actor', 'actor'
+];
+>>>>>>> 028054275833f79865304f3a9632838ec4fcd41d
