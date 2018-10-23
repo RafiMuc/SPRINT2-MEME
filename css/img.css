@@ -1,0 +1,11 @@
+.imgDiv {
+    width: 120px;
+    height: 80px;
+    object-fit: contain;
+    padding-bottom: 10px;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
