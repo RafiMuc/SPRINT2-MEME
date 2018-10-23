@@ -1,6 +1,9 @@
 @import url('helpers.css');
 @import url('img.css');
+<<<<<<< HEAD
 @import url('footer.css');
+=======
+>>>>>>> 403671bbbe24b0f2cbf68d014ae7a32192cf4b81
 
 body {
     background-image: linear-gradient(to right, lightblue, lightgreen);
