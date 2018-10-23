@@ -68,3 +68,6 @@ function getFontSize(elFontSize) {
     return elFontSize.value;
 }
 
+function setImgOnCanvas(img){
+    gCtx.drawImage(img,10,10);
+}
