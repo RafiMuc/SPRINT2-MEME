@@ -27,3 +27,25 @@ var gImgs = [
     {id: 24, imgUrl: 'img/24.jpg', kw: ['lecture', 'politics']},
     {id: 25, imgUrl: 'img/25.jpg', kw: ['movies']},
 ]; 
+
+function getImgById(id){
+    var imgIdx = gImgs.findIndex(function(img){
+        return id === img.id;
+    })
+    return gImgs[imgIdx];
+}
+
+function getImgs(){
+    return gImgs;
+}
+
+//create
+
+function filterImgByKw(kw){
+    var filteredImgs = gImgs.filter(function(img){
+        return img.kw.some(function(item){
+            return item === kw;
+        })
+    })
+    return filteredImgs;
+}
