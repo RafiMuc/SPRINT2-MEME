@@ -27,3 +27,11 @@ var gImgs = [
     {id: 24, imgUrl: 'img/24.jpg', kw: ['lecture', 'politics']},
     {id: 25, imgUrl: 'img/25.jpg', kw: ['movies']},
 ]; 
+
+var gKeyWords = [
+    'grumpy', 'politics', 'trump', 'happy', 'music',
+    'pets', 'dog', 'cute', 'baby', 'success', 'cat', 
+    'sleep','expert', 'lecture', 'funny', 'movies', 'satisfied',
+    'kids', 'quotes', 'sarcasm', 'dancing', 'tv', 
+    'shock', 'sports', 'struggle', 'actor', 'actor'
+];
