@@ -28,6 +28,9 @@ var gImgs = [
     { id: 25, imgUrl: 'img/25.jpg', kw: ['movies'] },
 ];
 
+var gCanvas = document.querySelector('canvas');
+var gCtx = gCanvas.getContext('2d');
+
 function getImgById(id) {
     var imgIdx = gImgs.findIndex(function (img) {
         return id === img.id;
@@ -64,3 +67,4 @@ function getColor(elColor) {
 function getFontSize(elFontSize) {
     return elFontSize.value;
 }
+
