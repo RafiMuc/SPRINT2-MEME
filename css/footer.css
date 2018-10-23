@@ -1,0 +1,13 @@
+footer {
+    height: 50px;
+    background-color: lightgray;
+}
+
+footer>div {
+    margin: 0 10px;
+}
+
+footer div:not(:last-child) {
+    border-right: 1px solid darkgrey;
+    padding-right: 20px;
+}
