@@ -46,6 +46,7 @@ function getImgs() {
 //create
 
 function filterImgByKw(kw) {
+    if(kw === 'all') return gImgs;
     var filteredImgs = gImgs.filter(function (img) {
         return img.kw.some(function (item) {
             return item === kw;
@@ -54,20 +55,20 @@ function filterImgByKw(kw) {
     return filteredImgs;
 }
 var gKeyWords = [
-    'grumpy', 'politics', 'trump', 'happy', 'music',
+    'all', 'grumpy', 'politics', 'trump', 'happy', 'music',
     'pets', 'dog', 'cute', 'baby', 'success', 'cat',
     'sleep', 'expert', 'lecture', 'funny', 'movies', 'satisfied',
     'kids', 'quotes', 'sarcasm', 'dancing', 'tv',
     'shock', 'sports', 'struggle', 'actor', 'actor'
 ];
 
-function getColor(elColor) {
-    return elColor.value;
-}
+// function getColor(elColor) {
+//     return elColor.value;
+// }
 
-function getFontSize(elFontSize) {
-    return elFontSize.value;
-}
+// function getFontSize(elFontSize) {
+//     return elFontSize.value;
+// }
 
 function setImgOnCanvas(img){
     gCtx.drawImage(img,10,10);
@@ -91,3 +92,4 @@ function addTextToMeme(obj){
     }
     gMeme.txts.push(memeTxt);
 }
+

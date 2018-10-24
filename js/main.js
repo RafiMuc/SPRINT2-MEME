@@ -1,12 +1,14 @@
 'use strict';
 
 function init() {
-    renderImgs();
+    renderImgs('all');
+    renederKwFilter();
 }
 
-function renderImgs() {
+function renderImgs(kw) {
+    var imgs = filterImgByKw(kw);
     var elHtmlStr = '';
-    gImgs.forEach((element) => {
+    imgs.forEach((element) => {
         elHtmlStr += `<div class="imgDiv flex"><img src="${element.imgUrl}" onclick="onSetImgOnCanvas(this, ${element.id})" /></div>`
     });
     document.querySelector('.gallery-container').innerHTML = elHtmlStr;
@@ -18,7 +20,7 @@ function onSetImgOnCanvas(elImg, id) {
     var elCanvas = document.querySelector('.meme-canvas');
     clearCanvas();
     elGallery.style.display = 'none';
-    elCanvas.display = 'block';
+    elCanvas.style.display = 'block';
     setImgOnCanvas(elImg);
 }
 
@@ -42,15 +44,26 @@ function onAddMemeBtn() {
 }
 
 function renderTextOnCanvs() {
-    // debugger;
     if (!gMeme.txts.length) return;
     gMeme.txts.forEach(txt => {
         gCtx.font = `${gCanvas.height/+txt.size}px ${txt.font}`;
         gCtx.fillStyle = txt.fillColor;
         gCtx.strokeStyle = txt.strokeColor;
         gCtx.textAlign="center"
-        gCtx.strokeText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / txt.align);
-        gCtx.fillText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / txt.align);
+        gCtx.strokeText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / +txt.align);
+        gCtx.fillText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / +txt.align);
     })
 }
 
+function renederKwFilter(){
+    var elImgFilter = document.querySelector('.img-filter')
+    var strHtmls = '';
+    gKeyWords.forEach(function(kw){
+        strHtmls+= `<option value='${kw}'>${kw}</option>`
+    })
+    elImgFilter.innerHTML = strHtmls;
+}
+
+function onSetKwFilter(elValue) {
+    renderImgs(elValue);
+}
