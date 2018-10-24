@@ -24,10 +24,9 @@
     <div class="meme-canvas">
         <canvas width="640" height="400" onclick="onCanvasClicked(event)"></canvas>
         <div class="add-txt-btn">Add Text</div>
-        <footer class="flex align-center justify-center direction-col">
+        <footer class="flex align-center justify-center direction-col" onchange="onFooterChange()">
             <div>
-                <input type="text" class="txt">
-                <button class="add-meme-btn" onclick="onAddMemeBtn()">Add Meme</button>
+                <input type="text" class="txt" onkeyup="onFooterChange()">
             </div>
             <div class=" btns flex align-center justify-center">
                 <div>
@@ -51,15 +50,15 @@
                 <div>
                     <span>Font Size</span>
                     <select class="txt-size">
-                        <option value=5>Small</option>
-                        <option value=4>Medium</option>
+                        <option value=6>Small</option>
+                        <option value=5>Medium</option>
                         <option value=3>Large</option>
                     </select></div>
                 <div>
                     <span>Align</span>
                     <select class="txt-align">
-                        <option value="4">Top</option>
-                        <option value="1.9">Mid</option>
+                        <option value="3">Top</option>
+                        <option value="2.2">Mid</option>
                         <option value="1.1">Bottom</option>
                     </select></div>
             </div>
