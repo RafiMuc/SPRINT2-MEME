@@ -71,8 +71,7 @@ var gKeyWords = [
 // }
 
 function setImgOnCanvas(img) {
-    debugger;
-    gCtx.drawImage(img, (gCanvas.width-img.width)/2, (gCanvas.height-img.height)/2);
+    gCtx.drawImage(img, (gCanvas.width - img.width) / 2, (gCanvas.height - img.height) / 2);
 }
 
 function createMeme(id) {
@@ -89,9 +88,7 @@ function addTextToMeme(obj) {
         strokeColor: obj.strokeColor,
         font: obj.font,
         size: obj.size,
-        align: obj.align
-        // xPos:
-        // yPos:
+        align: obj.align,
     }
     gMeme.txts.push(memeTxt);
 }
