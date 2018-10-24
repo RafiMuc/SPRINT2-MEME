@@ -81,6 +81,7 @@ function createMeme(id){
 }
 
 function addTextToMeme(txt, color, font, size, align){
+    debugger;
     var memeTxt =  {
         txt,
         color,
