@@ -5,3 +5,7 @@
 body {
     background-image: linear-gradient(to right, lightblue, lightgreen);
 }
+
+.meme-canvas {
+    display: none;
+}

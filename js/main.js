@@ -18,8 +18,8 @@ function onSetImgOnCanvas(elImg, id) {
     var elCanvas = document.querySelector('.meme-canvas');
     clearCanvas();
     elGallery.style.display = 'none';
-    elCanvas.display = 'block';
     setImgOnCanvas(elImg);
+    elCanvas.style.display = 'block';
 }
 
 function clearCanvas() {
@@ -42,7 +42,6 @@ function onAddMemeBtn() {
 }
 
 function renderTextOnCanvs() {
-    // debugger;
     if (!gMeme.txts.length) return;
     gMeme.txts.forEach(txt => {
         gCtx.font = `${gCanvas.height/+txt.size}px ${txt.font}`;
