@@ -110,5 +110,10 @@ function onRestartClicked() {
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
     renderImgs('all');
-    elSaveBtn.style.display = 'none';
+    elSaveBtn.style.display='none';
+}
+
+function onSaveMeme(elLink){
+    elLink.href = gCanvas.toDataURL();
+    elLink.download = 'my-meme.jpg'
 }

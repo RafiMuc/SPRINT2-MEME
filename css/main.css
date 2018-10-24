@@ -88,3 +88,8 @@ select, option, input {
 .save-meme-btn {
     display: none;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
