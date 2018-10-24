@@ -71,6 +71,7 @@ var gKeyWords = [
 // }
 
 function setImgOnCanvas(img) {
+    debugger;
     gCtx.drawImage(img, (gCanvas.width-img.width)/2, (gCanvas.height-img.height)/2);
 }
 

@@ -18,11 +18,16 @@ function onSetImgOnCanvas(elImg, id) {
     createMeme(id);
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
+    var elGalleryController = document.querySelector('.gallery-controller');
     clearCanvas();
+    elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
     setImgOnCanvas(elImg);
+<<<<<<< HEAD
     elCanvas.width = window.innerWidth;
     elCanvas.height = window.innerHeight;
+=======
+>>>>>>> 52c622f6ce2d18919dda8199bec5046e37c08425
     elCanvas.style.display = 'block';
 }
 
