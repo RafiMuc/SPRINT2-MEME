@@ -2,7 +2,20 @@
 @import url('img.css');
 @import url('footer.css');
 body {
-    background-image: linear-gradient(to right, lightblue, lightgreen);
+        margin: 0 auto;
+        background-image: url(../img/bg.png);
+        background-position: bottom;
+        background-attachment: fixed;
+        text-align: center;
+        position: relative;
+}
+
+h1 { 
+    color: #111; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-size: 3em;
+    line-height: 1; 
+    text-align: center; 
 }
 
 .meme-canvas {
@@ -20,7 +33,37 @@ header {
     text-align: center;
 }
 
-.save-meme-btn {
-    display: none;
-    margin: 10px auto;
+button {
+    background-color: black;
+    box-shadow: inset 0 0 0 3px snow;
+    color: snow;
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .75em;
+    font-weight: bold;
+    height: 3.75em;
+    line-height: 3.85em;
+    letter-spacing: 2px;
+    padding: 0 4em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
+
+select, option, input {
+    background-color: black;
+    color: snow;
+    box-shadow: inset 0 0 0 3px snow;
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    height: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
