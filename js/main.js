@@ -21,8 +21,8 @@ function onSetImgOnCanvas(elImg, id) {
     clearCanvas();
     elGallery.style.display = 'none';
     setImgOnCanvas(elImg);
-    elCanvas.width = window.innerWidth;
-    // elCanvas.height = window.innerHeight;
+    // gCtx.width = window.innerWidth;
+    // gCtx.height = window.innerHeight;
     elCanvas.style.display = 'block';
 }
 
