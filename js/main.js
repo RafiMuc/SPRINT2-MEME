@@ -20,11 +20,9 @@ function onSetImgOnCanvas(elImg, id) {
     var elCanvas = document.querySelector('.meme-canvas');
     clearCanvas();
     elGallery.style.display = 'none';
-<<<<<<< HEAD
-=======
-    elCanvas.style.display = 'block';
->>>>>>> 9a199afce3a5cfd0e9c045aa57886486dd7d83a5
     setImgOnCanvas(elImg);
+    elCanvas.width = window.innerWidth;
+    // elCanvas.height = window.innerHeight;
     elCanvas.style.display = 'block';
 }
 
