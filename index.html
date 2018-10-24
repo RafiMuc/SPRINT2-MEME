@@ -11,14 +11,18 @@
 
 <body onload="init()">
     <header>
-        <h1>Meme Generator</h1>
+        <h1>MEME GENERATOR</h1>
         <button>Restart</button>
     </header>
     <div class="gallery-controller">
-        <button>Upload your own picture</button>
+        <div>
+            <button>Upload your own picture</button>
+        </div>
         <!-- Possibly choose a random pic from gallery -->
         <!-- <button>Upload your own picture</button> -->
-        <select class="img-filter" onchange="onSetKwFilter(this.value)"></select>
+        <div>
+            <select class="img-filter" onchange="onSetKwFilter(this.value)"></select>
+        </div>
     </div>
     <div class="gallery-container flex flex-wrap justify-center"></div>
     <div class="meme-canvas">
