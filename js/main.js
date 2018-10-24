@@ -99,3 +99,8 @@ function onRestartClicked(){
     renderImgs('all');
     elSaveBtn.style.display='none';
 }
+
+function onSaveMeme(elLink){
+    elLink.href = gCanvas.toDataURL();
+    elLink.download = 'my-meme.jpg'
+}
