@@ -46,7 +46,7 @@ function getImgs() {
 //create
 
 function filterImgByKw(kw) {
-    if (kw === 'all') return gImgs;
+    if(kw === 'all') return gImgs;
     var filteredImgs = gImgs.filter(function (img) {
         return img.kw.some(function (item) {
             return item === kw;
@@ -70,19 +70,19 @@ var gKeyWords = [
 //     return elFontSize.value;
 // }
 
-function setImgOnCanvas(img) {
-    gCtx.drawImage(img, (gCanvas.width-img.width)/2, (gCanvas.height-img.height)/2);
+function setImgOnCanvas(img){
+    gCtx.drawImage(img,10,10);
 }
 
-function createMeme(id) {
+function createMeme(id){
     gMeme = {
         id: id,
         txts: []
     }
 }
 
-function addTextToMeme(obj) {
-    var memeTxt = {
+function addTextToMeme(obj){
+    var memeTxt =  {
         txt: obj.txt,
         fillColor: obj.fillColor,
         strokeColor: obj.strokeColor,
