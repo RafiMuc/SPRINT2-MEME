@@ -83,7 +83,8 @@ function createMeme(id){
 function addTextToMeme(obj){
     var memeTxt =  {
         txt: obj.txt,
-        color: obj.color,
+        fillColor: obj.fillColor,
+        strokeColor: obj.strokeColor,
         font: obj.font,
         size: obj.size,
         align: obj.align
