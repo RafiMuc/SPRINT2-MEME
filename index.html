@@ -12,7 +12,8 @@
 <body onload="init()">
     <header>
         <h1>MEME GENERATOR</h1>
-        <button>Restart</button>
+        <button onclick="onRestartClicked()">Restart</button>
+        <button class="save-meme-btn" onclick="onSaveMemeClicked">Save Meme</button>
     </header>
     <div class="gallery-controller">
         <div>
@@ -35,11 +36,11 @@
             <div class=" btns flex align-center justify-center">
                 <div>
                     <span>Fill Color</span>
-                    <input type="color" class="fill-color">
+                    <input type="color" class="fill-color" value="#FFFFFF">
                 </div>
                 <div>
                     <span>Stroke Color</span>
-                    <input type="color" class="stroke-color">
+                    <input type="color" class="stroke-color" value="#000000">
                 </div>
                 <div>
                     <span>Font</span>
