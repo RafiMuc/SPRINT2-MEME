@@ -30,7 +30,12 @@ var gImgs = [
 
 var gCanvas = document.querySelector('canvas');
 var gCtx = gCanvas.getContext('2d');
-var gMeme;
+
+var gMeme = {
+    id: 0,
+    image:'',
+    txts: []
+}
 
 function getImgById(id) {
     var imgIdx = gImgs.findIndex(function (img) {
@@ -70,15 +75,13 @@ var gKeyWords = [
 //     return elFontSize.value;
 // }
 
-function setImgOnCanvas(img) {
+function renderImgOnCanvas(img) {
     gCtx.drawImage(img, (gCanvas.width - img.width) / 2, (gCanvas.height - img.height) / 2);
 }
 
-function createMeme(id) {
-    gMeme = {
-        id: id,
-        txts: []
-    }
+function setMeme(id, image) {
+    gMeme.id = id;
+    gMeme.image = image;
 }
 
 function addTextToMeme(obj) {
@@ -90,6 +93,6 @@ function addTextToMeme(obj) {
         size: obj.size,
         align: obj.align,
     }
-    gMeme.txts.push(memeTxt);
+    gMeme.txts[0] = memeTxt;
 }
 

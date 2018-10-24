@@ -15,14 +15,14 @@ function renderImgs(kw) {
 }
 
 function onSetImgOnCanvas(elImg, id) {
-    createMeme(id);
+    setMeme(id, elImg);
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
     var elGalleryController = document.querySelector('.gallery-controller');
     clearCanvas();
     elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
-    setImgOnCanvas(elImg);
+    renderImgOnCanvas(elImg);
     elCanvas.style.display = 'block';
 }
 
@@ -31,40 +31,29 @@ function clearCanvas() {
 }
 
 function onAddMemeBtn() {
-    addTextToMeme(
-        {
-            txt: document.querySelector('.txt').value,
-            fillColor: document.querySelector('.fill-color').value,
-            strokeColor: document.querySelector('.stroke-color').value,
-            font: document.querySelector('.txt-font').value,
-            size: document.querySelector('.txt-size').value,
-            align: document.querySelector('.txt-align').value,
-            
-        }
-    );
-    renderTextOnCanvs();
+    
 }
 
 function renderTextOnCanvs() {
     if (!gMeme.txts.length) return;
     gMeme.txts.forEach(txtObj => {
-        debugger
+        // debugger
         gCtx.font = `${gCanvas.height / +txtObj.size}px ${txtObj.font}`;
+        gCtx.textAlign = "center"
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
-        gCtx.textAlign = "center"
-        txtObj.width = gCtx.measureText(txtObj.txt).width;
-        gCtx.strokeText(txtObj.txt, (gCanvas.width - txtObj.width) / 2, gCanvas.height / +txtObj.align);
-        gCtx.fillText(txtObj.txt, (gCanvas.width - txtObj.width) / 2, gCanvas.height / +txtObj.align);
-        if (!txtObj.xPos) addTextPosition(txtObj);
+        var width = gCtx.measureText(txtObj.txt).width;
+        gCtx.strokeText(txtObj.txt, gCanvas.width/ 2, gCanvas.height / +txtObj.align);
+        gCtx.fillText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
+        // if (!txtObj.xPos) addTextPosition(txtObj);
     })
 }
 
-function addTextPosition(obj){
-    obj.xPos = (gCanvas.width - obj.width) / 2;
-    obj.yPos = gCanvas.height / +obj.align;
-    obj.height = (gCanvas.height / obj.size) * 1.5;
-}
+// function addTextPosition(objdd){
+//     objdd.xPos = ((gCanvas.width - objdd.width) / 2);
+//     objdd.yPos = gCanvas.height / +objdd.align;
+//     objdd.height = (gCanvas.height / objdd.size) * 1.5;
+// }
 
 function renederKwFilter() {
     var elImgFilter = document.querySelector('.img-filter')
@@ -82,4 +71,21 @@ function onSetKwFilter(elValue) {
 function onCanvasClicked(ev) {
     console.log('Canvas clicked', ev);
 
+}
+
+function onFooterChange() {
+    clearCanvas();
+    renderImgOnCanvas(gMeme.image);
+    addTextToMeme(
+        {
+            txt: document.querySelector('.txt').value,
+            fillColor: document.querySelector('.fill-color').value,
+            strokeColor: document.querySelector('.stroke-color').value,
+            font: document.querySelector('.txt-font').value,
+            size: document.querySelector('.txt-size').value,
+            align: document.querySelector('.txt-align').value,
+            
+        }
+    );
+    renderTextOnCanvs();
 }
