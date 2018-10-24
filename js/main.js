@@ -1,6 +1,6 @@
 'use strict';
 
-function init(){
+function init() {
     renderImgs();
 }
 
@@ -12,7 +12,7 @@ function renderImgs() {
     document.querySelector('.gallery-container').innerHTML = elHtmlStr;
 }
 
-function onSetImgOnCanvas(elImg, id){
+function onSetImgOnCanvas(elImg, id) {
     createMeme(id);
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
@@ -23,5 +23,19 @@ function onSetImgOnCanvas(elImg, id){
 }
 
 function clearCanvas() {
-    gCtx.clearRect(0,0,gCanvas.width, gCanvas.height);
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
+
+function onAddMemeBtn() {
+    addTextToMeme(
+        {
+            txt: document.querySelector('.txt').value,
+            color: document.querySelector('.txt-color').value,
+            font: document.querySelector('.txt-font').value,
+            size: document.querySelector('.txt-size').value,
+            align: document.querySelector('.txt-align').value
+
+        }
+    )
+    setMemeOnCanvs()
 }

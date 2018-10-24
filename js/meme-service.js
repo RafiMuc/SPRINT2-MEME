@@ -80,12 +80,13 @@ function createMeme(id){
     }
 }
 
-function addTextToMeme(txt, color, font, size){
+function addTextToMeme(txt, color, font, size, align){
     var memeTxt =  {
         txt,
         color,
         font,
-        size
+        size,
+        align
     }
     gMeme.txts.push(memeTxt);
 }
