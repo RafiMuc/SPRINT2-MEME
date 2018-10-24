@@ -48,7 +48,6 @@ function onAddMemeBtn() {
 function renderTextOnCanvs() {
     if (!gMeme.txts.length) return;
     gMeme.txts.forEach(txtObj => {
-        debugger
         gCtx.font = `${gCanvas.height / +txtObj.size}px ${txtObj.font}`;
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
@@ -57,6 +56,10 @@ function renderTextOnCanvs() {
         gCtx.strokeText(txtObj.txt, (gCanvas.width - txtObj.width) / 2, gCanvas.height / +txtObj.align);
         gCtx.fillText(txtObj.txt, (gCanvas.width - txtObj.width) / 2, gCanvas.height / +txtObj.align);
         if (!txtObj.xPos) addTextPosition(txtObj);
+        console.log('xPos:',txtObj.xPos); 
+        console.log('yPos:',txtObj.yPos); 
+        console.log('width:',txtObj.width); 
+        console.log('height:',txtObj.height); 
     })
 }
 
