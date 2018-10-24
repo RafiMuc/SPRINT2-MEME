@@ -36,6 +36,16 @@ function onAddMemeBtn() {
             align: document.querySelector('.txt-align').value
 
         }
-    )
-    setMemeOnCanvs()
+    );
+    renderTextOnCanvs();
 }
+
+function renderTextOnCanvs() {
+    if (!gMeme.txts.length) return;
+    gMeme.txts.forEach(txt => {
+        gCtx.font = `${txt.size} ${txt.font}`;
+        gCtx.fillStyle = txt.color;
+        gCtx.fillText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / txt.align);
+    })
+}
+
