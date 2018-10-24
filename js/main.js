@@ -38,8 +38,8 @@ function onAddMemeBtn() {
             strokeColor: document.querySelector('.stroke-color').value,
             font: document.querySelector('.txt-font').value,
             size: document.querySelector('.txt-size').value,
-            align: document.querySelector('.txt-align').value
-
+            align: document.querySelector('.txt-align').value,
+            
         }
     );
     renderTextOnCanvs();
@@ -47,16 +47,23 @@ function onAddMemeBtn() {
 
 function renderTextOnCanvs() {
     if (!gMeme.txts.length) return;
-    gMeme.txts.forEach(txt => {
-        gCtx.font = `${gCanvas.height / +txt.size}px ${txt.font}`;
-        gCtx.fillStyle = txt.fillColor;
-        gCtx.strokeStyle = txt.strokeColor;
+    gMeme.txts.forEach(txtObj => {
+        debugger
+        gCtx.font = `${gCanvas.height / +txtObj.size}px ${txtObj.font}`;
+        gCtx.fillStyle = txtObj.fillColor;
+        gCtx.strokeStyle = txtObj.strokeColor;
         gCtx.textAlign = "center"
-        gCtx.strokeText(txt.txt, (gCanvas.width - txt.txt.length) / 2, gCanvas.height / +txt.align);
-        gCtx.fillText(txt.txt, (gCanvas.width - txt.txt.length) / 2, gCanvas.height / +txt.align);
+        txtObj.width = gCtx.measureText(txtObj.txt).width;
+        gCtx.strokeText(txtObj.txt, (gCanvas.width - txtObj.width) / 2, gCanvas.height / +txtObj.align);
+        gCtx.fillText(txtObj.txt, (gCanvas.width - txtObj.width) / 2, gCanvas.height / +txtObj.align);
+        if (!txtObj.xPos) addTextPosition(txtObj);
     })
-    console.log('gCtx width',gCtx.width); 
-    console.log('gCtx height',gCtx.height); 
+}
+
+function addTextPosition(obj){
+    obj.xPos = (gCanvas.width - obj.width) / 2;
+    obj.yPos = gCanvas.height / +obj.align;
+    obj.height = (gCanvas.height / obj.size) * 1.5;
 }
 
 function renederKwFilter() {
@@ -74,4 +81,5 @@ function onSetKwFilter(elValue) {
 
 function onCanvasClicked(ev) {
     console.log('Canvas clicked', ev);
+
 }

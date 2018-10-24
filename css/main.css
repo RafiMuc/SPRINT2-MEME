@@ -9,8 +9,6 @@ body {
     display: none;
     width: 640px;
     margin: 10px auto;
-<<<<<<< HEAD
-=======
 }
 
 header {
@@ -20,5 +18,4 @@ header {
 .gallery-controller {
     margin: 10px auto;
     text-align: center;
->>>>>>> 52c622f6ce2d18919dda8199bec5046e37c08425
 }
