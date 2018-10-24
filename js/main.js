@@ -25,11 +25,24 @@ function onSetImgOnCanvas(elImg, id) {
     elGallery.style.display = 'none';
     renderImgOnCanvas(elImg);
     elCanvas.style.display = 'block';
-    elSaveBtn.style.display='inline-block';
+    elSaveBtn.style.display = 'inline-block';
 }
 
 function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
+
+function renderImgOnCanvas(img) {
+    // gCanvas.setAttribute(width, '100%');
+    //TODO: calc
+    // debugger;
+    var imgWidth = +img.naturalWidth;
+    var imgHeight = +img.naturalHeight;
+    var ratio = imgHeight / imgWidth
+    gCanvas.width = imgWidth;
+    gCanvas.height = imgHeight;
+
+    gCtx.drawImage(img, 0, 0, imgWidth, imgWidth * ratio);
 }
 
 function renderTextOnCanvs() {
@@ -41,7 +54,7 @@ function renderTextOnCanvs() {
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
         var width = gCtx.measureText(txtObj.txt).width;
-        gCtx.strokeText(txtObj.txt, gCanvas.width/ 2, gCanvas.height / +txtObj.align);
+        gCtx.strokeText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
         gCtx.fillText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
         // if (!txtObj.xPos) addTextPosition(txtObj);
     })
@@ -82,13 +95,13 @@ function onFooterChange() {
             font: document.querySelector('.txt-font').value,
             size: document.querySelector('.txt-size').value,
             align: document.querySelector('.txt-align').value,
-            
+
         }
     );
     renderTextOnCanvs();
 }
 
-function onRestartClicked(){
+function onRestartClicked() {
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
     var elGalleryController = document.querySelector('.gallery-controller');

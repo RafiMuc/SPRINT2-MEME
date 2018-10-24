@@ -75,9 +75,7 @@ var gKeyWords = [
 //     return elFontSize.value;
 // }
 
-function renderImgOnCanvas(img) {
-    gCtx.drawImage(img, (gCanvas.width - img.width) / 2, (gCanvas.height - img.height) / 2);
-}
+
 
 function setMeme(id, image) {
     gMeme.id = id;
