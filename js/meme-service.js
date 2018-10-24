@@ -64,7 +64,7 @@ var gKeyWords = [
     'pets', 'dog', 'cute', 'baby', 'success', 'cat',
     'sleep', 'expert', 'lecture', 'funny', 'movies', 'satisfied',
     'kids', 'quotes', 'sarcasm', 'dancing', 'tv',
-    'shock', 'sports', 'struggle', 'actor', 'actor'
+    'shock', 'sports', 'struggle', 'actor'
 ];
 
 // function getColor(elColor) {
