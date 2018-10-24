@@ -1,7 +1,6 @@
 @import url('helpers.css');
 @import url('img.css');
 @import url('footer.css');
-
 body {
     background-image: linear-gradient(to right, lightblue, lightgreen);
 }
@@ -9,5 +8,5 @@ body {
 .meme-canvas {
     display: none;
     width: 640px;
-    margin: 0,auto;
+    margin: 10px auto;
 }

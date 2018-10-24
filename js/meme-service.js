@@ -89,6 +89,8 @@ function addTextToMeme(obj) {
         font: obj.font,
         size: obj.size,
         align: obj.align
+        // xPos:
+        // yPos:
     }
     gMeme.txts.push(memeTxt);
 }
