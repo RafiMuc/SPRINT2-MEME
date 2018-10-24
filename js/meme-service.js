@@ -33,8 +33,8 @@ var gCtx = gCanvas.getContext('2d');
 
 var gMeme = {
     id: 0,
-    image:'',
-    txts: []
+    image: '',
+    txts: [createBasicText()]
 }
 
 function getImgById(id) {
@@ -82,15 +82,57 @@ function setMeme(id, image) {
     gMeme.image = image;
 }
 
-function addTextToMeme(obj) {
+function createBasicText(){
     var memeTxt = {
-        txt: obj.txt,
-        fillColor: obj.fillColor,
-        strokeColor: obj.strokeColor,
-        font: obj.font,
-        size: obj.size,
-        align: obj.align,
+        txt: '',
+        strokeColor: '#000000',
+        fillColor: '#ffffff',
+        font: 'impact',
+        size: 9,
+        width: 0,
+        xPos: 100,
+        yPos: 100,
+        height: 13.5
     }
-    gMeme.txts[0] = memeTxt;
+    return memeTxt;
 }
 
+// function updateMemeModel(id, txt, strokeColor, fillColor, font, size) {
+//     gMeme.txts[id].txt = txt
+//     gMeme.txts[id].strokeColor = strokeColor
+//     gMeme.txts[id].fillColor = fillColor
+//     gMeme.txts[id].font = font
+//     gMeme.txts[id].size = size
+//     // console.log(memeTxt);
+// }
+
+//***************25/10/18******************
+//can be united to one updete meme function .... maybe
+
+function updateMemeTxt(idx, txt){
+    gMeme.txts[idx].txt = txt
+}
+function updateMemeStrokeColor(idx, strokeColor){
+    gMeme.txts[idx].strokeColor = strokeColor
+}
+function updateMemeFillColor(idx, fillColor){
+    gMeme.txts[idx].fillColor = fillColor
+}
+function updateMemeFont(idx, font){
+    gMeme.txts[idx].font = font
+}
+function updateMemeSize(idx, size){
+    gMeme.txts[idx].size = size
+}
+function moveTextUp(idx){
+    gMeme.txts[idx].yPos -= 20;
+}
+function moveTextRight(idx){
+    gMeme.txts[idx].xPos += 20;
+}
+function moveTextLeft(idx){
+    gMeme.txts[idx].xPos -= 20;
+}
+function moveTextDown(idx){
+    gMeme.txts[idx].yPos += 20;
+}

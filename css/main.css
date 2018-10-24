@@ -12,7 +12,6 @@ html {
 }
 
 body {
-<<<<<<< HEAD
         font-family: 'Helvetica Neue', sans-serif; 
         margin: 0 auto;
         background-image: url(../img/bg.png);
@@ -29,24 +28,6 @@ h1 {
     font-size: 4em;
     line-height: 1; 
     text-align: center; 
-=======
-    margin: 0 auto;
-    background-image: url(../img/bg.png);
-    background-position: bottom;
-    background-attachment: fixed;
-    font-family: 'Helvetica Neue', sans-serif;
-    text-align: center;
-    position: relative;
-    width: 100%;
-}
-
-h1 {
-    color: #111;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-size: 3em;
-    line-height: 1;
-    text-align: center;
->>>>>>> 04d63e2a62ac0468b4f2206764a54b26a879000d
 }
 
 .meme-canvas {
@@ -64,7 +45,7 @@ header {
     text-align: center;
 }
 
-button {
+header button, .gallery-controller button {
     background-color: black;
     box-shadow: inset 0 0 0 3px snow;
     color: snow;
@@ -90,11 +71,10 @@ canvas {
     border-radius: 10px;
 }
 
-/* select, option {
+
+.btns input, .btns select, .btns option {
     background-color: black;
     color: snow;
-    box-shadow: inset 0 0 0 3px snow;
-    border-radius: 30px;
     border: 0;
     cursor: pointer;
     display: inline-block;
@@ -102,9 +82,13 @@ canvas {
     height: 2em;
     text-transform: uppercase;
     text-align: center;
-} */
+}
 
-input, select, option {
+.txt-move-controller {
+    margin: 10px 0;
+}
+
+.txt-move-controller button {
     background-color: black;
     color: snow;
     border: 0;
@@ -132,10 +116,11 @@ a {
 .txt {
     background-color: white;
     width: 70%;
+   
 }
 
 .txt-input {
-    width: 70%;
+    width: 100%;
 }
 
 @media (max-width: 600px) {
