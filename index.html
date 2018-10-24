@@ -14,10 +14,12 @@
         <h1>Meme Generator</h1>
         <button>Restart</button>
     </header>
-    <button>Upload your own picture</button>
-    <!-- Possibly choose a random pic from gallery -->
-    <!-- <button>Upload your own picture</button> -->
-    <select class="img-filter" onchange="onSetKwFilter(this.value)"></select>
+    <div class="gallery-controller">
+        <button>Upload your own picture</button>
+        <!-- Possibly choose a random pic from gallery -->
+        <!-- <button>Upload your own picture</button> -->
+        <select class="img-filter" onchange="onSetKwFilter(this.value)"></select>
+    </div>
     <div class="gallery-container flex flex-wrap justify-center"></div>
     <div class="meme-canvas">
         <canvas width="640" height="400"></canvas>

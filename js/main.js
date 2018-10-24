@@ -18,7 +18,9 @@ function onSetImgOnCanvas(elImg, id) {
     createMeme(id);
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
+    var elGalleryController = document.querySelector('.gallery-controller');
     clearCanvas();
+    elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
     setImgOnCanvas(elImg);
     elCanvas.style.display = 'block';
