@@ -80,14 +80,18 @@ function createMeme(id){
     }
 }
 
+<<<<<<< HEAD
 function addTextToMeme(txt, color, font, size, align){
     debugger;
+=======
+function addTextToMeme(obj){
+>>>>>>> f36194e61b81b75dbfd0796fbe5eca2eb67947df
     var memeTxt =  {
-        txt,
-        color,
-        font,
-        size,
-        align
+        txt: obj.txt,
+        color: obj.color,
+        font: obj.font,
+        size: obj.size,
+        align: obj.align
     }
     gMeme.txts.push(memeTxt);
 }
