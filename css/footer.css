@@ -9,6 +9,6 @@ footer {
 }
 
 footer div:not(:last-child) {
-    border-right: 1px solid darkgrey;
     padding-right: 20px;
 }
+
