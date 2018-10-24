@@ -25,7 +25,7 @@ function onSetImgOnCanvas(elImg, id) {
     elGallery.style.display = 'none';
     renderImgOnCanvas(elImg);
     elCanvas.style.display = 'block';
-    elSaveBtn.style.display='block';
+    elSaveBtn.style.display='inline-block';
 }
 
 function clearCanvas() {
@@ -92,6 +92,7 @@ function onRestartClicked(){
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
     var elGalleryController = document.querySelector('.gallery-controller');
+    var elSaveBtn = document.querySelector('.save-meme-btn');
     elCanvas.style.display = 'none';
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
