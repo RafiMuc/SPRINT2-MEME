@@ -53,7 +53,8 @@ function renderTextOnCanvs() {
         gCtx.textAlign = "center"
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
-        var width = gCtx.measureText(txtObj.txt).width;
+        // var width = gCtx.measureText(txtObj.txt).width;
+        gCtx.lineWidth = 10;
         gCtx.strokeText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
         gCtx.fillText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
         // if (!txtObj.xPos) addTextPosition(txtObj);
@@ -110,10 +111,10 @@ function onRestartClicked() {
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
     renderImgs('all');
-    elSaveBtn.style.display='none';
+    elSaveBtn.style.display = 'none';
 }
 
-function onSaveMeme(elLink){
+function onSaveMeme(elLink) {
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'my-meme.jpg'
 }
