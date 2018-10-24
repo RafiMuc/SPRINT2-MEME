@@ -72,3 +72,6 @@ select, option, input {
     text-align: center;
 }
 
+.save-meme-btn {
+    display: none;
+}
