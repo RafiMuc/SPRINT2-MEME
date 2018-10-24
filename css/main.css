@@ -2,6 +2,10 @@
 @import url('img.css');
 @import url('footer.css');
 
+*{
+    box-sizing: border-box;
+}
+
 body {
         margin: 0 auto;
         background-image: url(../img/bg.png);
