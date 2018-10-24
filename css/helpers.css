@@ -23,3 +23,7 @@
 .direction-col {
     flex-direction: column;
 }
+
+.flex-rows {
+    flex-direction: row;
+}
