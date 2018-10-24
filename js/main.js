@@ -30,7 +30,8 @@ function onAddMemeBtn() {
     addTextToMeme(
         {
             txt: document.querySelector('.txt').value,
-            color: document.querySelector('.txt-color').value,
+            fillColor: document.querySelector('.fill-color').value,
+            strokeColor: document.querySelector('.stroke-color').value,
             font: document.querySelector('.txt-font').value,
             size: document.querySelector('.txt-size').value,
             align: document.querySelector('.txt-align').value
@@ -41,10 +42,14 @@ function onAddMemeBtn() {
 }
 
 function renderTextOnCanvs() {
+    // debugger;
     if (!gMeme.txts.length) return;
     gMeme.txts.forEach(txt => {
-        gCtx.font = `${txt.size} ${txt.font}`;
-        gCtx.fillStyle = txt.color;
+        gCtx.font = `${gCanvas.height/+txt.size}px ${txt.font}`;
+        gCtx.fillStyle = txt.fillColor;
+        gCtx.strokeStyle = txt.strokeColor;
+        gCtx.textAlign="center"
+        gCtx.strokeText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / txt.align);
         gCtx.fillText(txt.txt, (gCanvas.width - txt.txt.length)/2, gCanvas.height / txt.align);
     })
 }
