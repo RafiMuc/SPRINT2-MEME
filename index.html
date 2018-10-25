@@ -16,10 +16,12 @@
         <button onclick="onRestartClicked()">Restart</button>
         <button class="save-meme-btn"><a onclick="onSaveMeme(this)">Save Meme</a></button>
     </header>
+    
     <div class="gallery-controller">
         <div>
-            <button>Upload your own picture</button>
+            <button onclick="uploadFile()">Upload your own picture</button>
         </div>
+      
         <div class="image-filter-div">
             <select class="img-filter" onchange="onSetKwFilter(this.value)"></select>
         </div>
