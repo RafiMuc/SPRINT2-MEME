@@ -52,7 +52,7 @@ function renderImgOnCanvas() {
 
 function renderTextOnCanvas() {
     if (!gMeme.txts.length) return;
-    gMeme.txts.forEach(txtObj => {
+    gMeme.txts.forEach((txtObj, i )=> {
         // debugger
         gCtx.font = `${txtObj.size}px ${txtObj.font}`;
         // gCtx.textAlign = "center"
@@ -64,7 +64,7 @@ function renderTextOnCanvas() {
         gCtx.lineWidth = 10;
         gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
-        setTextBoxSize(0, width, height);
+        setTextBoxSize(i, width, height);
     })
 }
 
@@ -93,7 +93,6 @@ function onCanvasClicked(evt) {
 }
 
 function renderCanvasControls(idx) {
-    debugger
     var txt = gMeme.txts[idx];
     document.querySelector('.txt').value = txt.txt;
     document.querySelector('.fill-color').value = txt.fillColor;
@@ -106,6 +105,7 @@ function renderCanvas() {
     clearCanvas();
     renderImgOnCanvas();
     renderTextOnCanvas();
+    document.querySelector('.txt').focus();
 }
 
 
@@ -212,4 +212,37 @@ function handleAddText(){
 
 function handleDeleteText(){
 
+}
+
+function onMouseDown() {
+    gMouseState = true;
+}
+
+function onMouseUp() {
+    gMouseState = false;
+}
+
+function isValidPos(x, y){
+    return Math.abs(x - gLastPosX) > 40 || Math.abs(y - gLastPosY) > 40;
+}
+
+function dragTxt(ev) {
+    var rect = gCanvas.getBoundingClientRect();
+    var coorX = ev.clientX - rect.left
+    var coorY = ev.clientY - rect.top
+    var isValid = isValidPos(coorX, coorY);
+    if (gMouseState && isValid) {
+        var randX = getRandomIntInclusive(10, 100);
+        ctx.strokeStyle = gShapeColor;
+        
+        if (gShape === 'square') {
+            ctx.strokeRect(coorX, coorY, randX, randX);
+        } else {
+            ctx.beginPath();
+            ctx.arc(coorX,coorY,randX,0,Math.PI*2);
+            ctx.stroke();
+        }
+        gLastPosX = coorX;
+        gLastPosY = coorY;
+    }
 }

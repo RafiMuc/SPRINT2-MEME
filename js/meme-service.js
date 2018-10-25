@@ -50,7 +50,6 @@ function getImgs() {
 }
 
 function getMemeActiveTextIdx() {
-    if (gMemeActiveTextIdx === -1) gMemeActiveTextIdx = 0;
     return gMemeActiveTextIdx;
 }
 //create
