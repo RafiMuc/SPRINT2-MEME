@@ -42,9 +42,8 @@ function renderImgOnCanvas() {
     var ratio = imgHeight / imgWidth
     gCanvas.width = imgWidth;
     gCanvas.height = imgHeight;
-    console.log('imgWidth',imgWidth); 
 
-    if(imgWidth > window.innerWidth) imgWidth = window.innerWidth;
+    if (imgWidth > window.innerWidth) imgWidth = window.innerWidth;
     var elCanContain = document.querySelector('.meme-canvas');
     elCanContain.style.width = imgWidth;
 
@@ -63,7 +62,7 @@ function renderTextOnCanvas() {
         var height = txtObj.size * 0.7;
         // console.log('txtObj.size', txtObj.size);
         gCtx.lineWidth = 10;
-        gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos );
+        gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         setTextBoxSize(0, width, height);
     })
@@ -83,26 +82,26 @@ function onSetKwFilter(elValue) {
 }
 
 function onCanvasClicked(evt) {
- 
-    var rect = gCanvas.getBoundingClientRect();
-    console.log('x:', evt.clientX - rect.left); 
-    console.log('y:', evt.clientY - rect.top); 
-    let x = evt.clientX - rect.left
-    let y  = evt.clientY - rect.top
-    // return {
-    //   x: evt.clientX - rect.left,
-    //   y: evt.clientY - rect.top
-    // };
-    console.log('Is On Meme',isOnMeme(x, y))
 
-    }
-    // fillData()
-    // console.log('offsetX', ev.offsetX);
-    // console.log('offsetY', ev.offsetY);
-    // savePosition(idx, ev.offsetX, ev.offsetY);
+    var rect = gCanvas.getBoundingClientRect();
+    let x = evt.clientX - rect.left
+    let y = evt.clientY - rect.top
+
+    var idx = getClickedMemeIdx(x, y);
+    renderCanvasControls(idx);
+
+}
+
+function renderCanvasControls(idx) {
+    var txt = gMeme.txts[idx];
+    document.querySelector('.txt-input').value = txt.txt;
+    document.querySelector('.fill-color').value = txt.fillColor;
+    document.querySelector('.stroke-color').value = txt.strokeColor;
+    document.querySelector('.txt-font').value = txt.font;
+    document.querySelector('.txt-size').value = txt.size;
+}
 
 function renderCanvas() {
-    // debugger;
     clearCanvas();
     renderImgOnCanvas();
     renderTextOnCanvas();
@@ -117,31 +116,31 @@ function renderCanvas() {
 //or from click on the text inside the canvas (if we manage to make it work)
 
 function onTextEdit(value) {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     updateMemeTxt(idx, value);
     renderCanvas();
 }
 
 function onStrokeColorChange(value) {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     updateMemeStrokeColor(idx, value);
     renderCanvas();
 }
 
 function onFillColorChange(value) {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     updateMemeFillColor(idx, value);
     renderCanvas();
 }
 
 function onFontChange(value) {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     updateMemeFont(idx, value);
     renderCanvas();
 }
 
 function onSizeChange(value) {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     updateMemeSize(idx, value);
     renderCanvas();
 }
@@ -166,22 +165,22 @@ function onRestartClicked() {
 }
 
 function onMoveTextUp() {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     moveTextUp(idx);
     renderCanvas();
 }
 function onMoveTextRight() {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     moveTextRight(idx);
     renderCanvas();
 }
 function onMoveTextLeft() {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     moveTextLeft(idx);
     renderCanvas();
 }
 function onMoveTextDown() {
-    var idx =getMemeActiveTextIdx();
+    var idx = getMemeActiveTextIdx();
     moveTextDown(idx);
     renderCanvas();
 }
@@ -191,13 +190,13 @@ function onSaveMeme(elLink) {
     elLink.download = 'my-meme.jpg'
 }
 
-function handleMoveText(ev){
+function handleMoveText(ev) {
     var idx = getMemeActiveTextIdx();
     if (gMemeActiveTextIdx < 0) return;
-    if(ev.key === 'ArrowUp') moveTextUp(idx);
-    if(ev.key === 'ArrowDown') moveTextDown(idx);
-    if(ev.key === 'ArrowRight') moveTextRight(idx);
-    if(ev.key === 'ArrowLeft') moveTextLeft(idx);
+    if (ev.key === 'ArrowUp') moveTextUp(idx);
+    if (ev.key === 'ArrowDown') moveTextDown(idx);
+    if (ev.key === 'ArrowRight') moveTextRight(idx);
+    if (ev.key === 'ArrowLeft') moveTextLeft(idx);
     renderCanvas();
     console.log(ev);
 }
