@@ -13,7 +13,7 @@
 <body onload="init()" onkeyup="handleMoveText(event)">
     <header>
         <h1>MEME GENERATOR</h1>
-        <button onclick="onRestartClicked()">Restart</button>
+        <button class="restart-btn" onclick="onRestartClicked()">Restart</button>
         <button class="save-meme-btn"><a onclick="onSaveMeme(this)">Save Meme</a></button>
     </header>
     <div class="gallery-controller">
@@ -64,9 +64,9 @@
                     <div>
                         <i class="fas fa-arrows-alt-v"></i>
                         <select class="txt-size" onchange="onSizeChange(this.value)">
-                            <option value=80>Small</option>
-                            <option value=120>Medium</option>
-                            <option value=140>Large</option>
+                            <option value=50>Small</option>
+                            <option value=80 selected>Medium</option>
+                            <option value=110>Large</option>
                         </select>
                     </div>
                 </div>

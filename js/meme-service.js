@@ -28,6 +28,8 @@ var gImgs = [
     { id: 25, imgUrl: 'img/25.jpg', kw: ['movies'] },
 ];
 
+var gRandomLines = ['Hello World', 'No Pain No Gain', 'CSS?', 'OMG', 'LOL'];
+
 var gMemeActiveTextIdx = -1;
 var gCanvas = document.querySelector('canvas');
 var gCtx = gCanvas.getContext('2d');
@@ -76,6 +78,19 @@ function setMeme(id, image) {
     gMeme.id = id;
     gMeme.image = image;
 }
+
+// function createRandomMeme(){
+//     var randNum25 = getRandomInt(25);
+//     gMeme.id = randNum25;
+//     gMeme.image = `<img src='img/${randNum25}.jpg' />`;
+//     createBasicText();
+//     var randNum1 = getRandomInt(gRandomLines.length);
+//     gMeme.txts[0].txt = gRandomLines[randNum1];
+//     gRandomLines.splice(randNum1, 1);
+//     var randNum2 = getRandomInt(gRandomLines.length);
+//     gMeme.txts[1].txt = gRandomLines[randNum2];
+//     gMeme.txts[1].yPos = 400;
+// }
 
 function createBasicText() {
     var memeTxt = {
@@ -165,3 +180,8 @@ function resetModel() {
     }
     createBasicText();
 }
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
