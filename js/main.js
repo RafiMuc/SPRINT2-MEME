@@ -101,7 +101,9 @@ function renderCanvas() {
 //can be done from class on input if we use multiple inputs 
 //or from click on the text inside the canvas (if we manage to make it work)
 
-function onTextEdit(idx, value) {
+function onTextEdit(value) {
+    debugger;
+    var idx = getMemeActiveTextIdx();
     updateMemeTxt(idx, value);
     renderCanvas();
 }
@@ -129,9 +131,9 @@ function onSizeChange(idx, value) {
 // renderCanvas()
 
 
-function onTextPropsChange(value) {
-    console.log(value);
-}
+// function onTextPropsChange(value) {
+//     console.log(value);
+// }
 
 function onRestartClicked() {
     var elGallery = document.querySelector('.gallery-container');
@@ -167,12 +169,22 @@ function onSaveMeme(elLink) {
     elLink.download = 'my-meme.jpg'
 }
 
+<<<<<<< HEAD
 function handleMoveText(ev, idx) {
     if (gMemeActiveInput < 0) return;
     if (ev.key === 'ArrowUp') moveTextUp(idx);
     if (ev.key === 'ArrowDown') moveTextDown(idx);
     if (ev.key === 'ArrowRight') moveTextRight(idx);
     if (ev.key === 'ArrowLeft') moveTextLeft(idx);
+=======
+function handleMoveText(ev){
+    var idx = getMemeActiveTextIdx();
+    if (gMemeActiveTextIdx < 0) return;
+    if(ev.key === 'ArrowUp') moveTextUp(idx);
+    if(ev.key === 'ArrowDown') moveTextDown(idx);
+    if(ev.key === 'ArrowRight') moveTextRight(idx);
+    if(ev.key === 'ArrowLeft') moveTextLeft(idx);
+>>>>>>> fb2a4aabc864eefa746629ead40b47bcef5ad833
     renderCanvas();
     console.log(ev);
 }
