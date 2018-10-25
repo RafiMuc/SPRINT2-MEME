@@ -33,9 +33,6 @@ function clearCanvas() {
 }
 
 function renderImgOnCanvas() {
-    // gCanvas.setAttribute(width, '100%');
-    //TODO: calc
-    // debugger;
     var img = gMeme.image;
     var imgWidth = +img.naturalWidth;
     var imgHeight = +img.naturalHeight;
@@ -52,19 +49,16 @@ function renderImgOnCanvas() {
 
 function renderTextOnCanvas() {
     if (!gMeme.txts.length) return;
-    gMeme.txts.forEach(txtObj => {
-        // debugger
+    gMeme.txts.forEach((txtObj, i) => {
         gCtx.font = `${txtObj.size}px ${txtObj.font}`;
-        // gCtx.textAlign = "center"
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
         var width = gCtx.measureText(txtObj.txt).width;
         var height = txtObj.size * 0.7;
-        // console.log('txtObj.size', txtObj.size);
         gCtx.lineWidth = 10;
         gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
-        setTextBoxSize(0, width, height);
+        setTextBoxSize(i, width, height);
     })
 }
 
@@ -108,13 +102,6 @@ function renderCanvas() {
 }
 
 
-//  ****************25/10/18*******************
-//IMPORTANT ---> currently idx 0 is written in each of the new functions in the html.
-//need to remove and get the idx from active input or text
-//need to get the active text: 
-//can be done from class on input if we use multiple inputs 
-//or from click on the text inside the canvas (if we manage to make it work)
-
 function onTextEdit(value) {
     var idx = getMemeActiveTextIdx();
     updateMemeTxt(idx, value);
@@ -144,19 +131,14 @@ function onSizeChange(value) {
     updateMemeSize(idx, value);
     renderCanvas();
 }
-// updateMemeModel(txtIdx, elTxtVal, elStrokeColorVal, elFillColorVal, elFont, elSize);
-// renderCanvas()
 
-
-// function onTextPropsChange(value) {
-//     console.log(value);
-// }
 
 function onRestartClicked() {
     var elGallery = document.querySelector('.gallery-container');
     var elCanvas = document.querySelector('.meme-canvas');
     var elGalleryController = document.querySelector('.gallery-controller');
     var elSaveBtn = document.querySelector('.save-meme-btn');
+    resetModel();
     elCanvas.style.display = 'none';
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
@@ -210,5 +192,7 @@ function handleAddText(){
 }
 
 function handleDeleteText(){
-
+    var idx = getMemeActiveTextIdx();
+    deleteTextFromMeme(idx);
+    renderCanvas();
 }

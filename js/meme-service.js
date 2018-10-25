@@ -50,10 +50,8 @@ function getImgs() {
 }
 
 function getMemeActiveTextIdx() {
-    if (gMemeActiveTextIdx === -1) gMemeActiveTextIdx = 0;
     return gMemeActiveTextIdx;
 }
-//create
 
 function filterImgByKw(kw) {
     if (kw === 'all') return gImgs;
@@ -71,14 +69,6 @@ var gKeyWords = [
     'kids', 'quotes', 'sarcasm', 'dancing', 'tv',
     'shock', 'sports', 'struggle', 'actor'
 ];
-
-// function getColor(elColor) {
-//     return elColor.value;
-// }
-
-// function getFontSize(elFontSize) {
-//     return elFontSize.value;
-// }
 
 
 
@@ -103,17 +93,6 @@ function createBasicText() {
     gMemeActiveTextIdx = gMeme.txts.length - 1;
 }
 
-// function updateMemeModel(id, txt, strokeColor, fillColor, font, size) {
-//     gMeme.txts[id].txt = txt
-//     gMeme.txts[id].strokeColor = strokeColor
-//     gMeme.txts[id].fillColor = fillColor
-//     gMeme.txts[id].font = font
-//     gMeme.txts[id].size = size
-//     // console.log(memeTxt);
-// }
-
-//***************25/10/18******************
-//can be united to one updete meme function .... maybe
 
 function updateMemeTxt(idx, txt) {
     gMeme.txts[idx].txt = txt
@@ -145,15 +124,18 @@ function moveTextDown(idx) {
 function setTextBoxSize(idx, w, h) {
     gMeme.txts[idx].width = w;
     gMeme.txts[idx].height = h;
-    // console.log('width saved', gMeme.txts[idx].width);
-    // console.log('height saved', gMeme.txts[idx].height);
-    // gCtx.clearRect(gMeme.txts[0].xPos, gMeme.txts[0].yPos - h, w, h);
 }
 
 // Save new position after dragging text
 function setNewPosition(idx, x, y) {
     gMeme.txts[idx].xPos = x;
     gMeme.txts[idx].yPos = y;
+}
+
+function deleteTextFromMeme(idx) {
+    gMeme.txts.splice(idx, 1);
+    if (gMeme.txts.length === 0) createBasicText();
+    gMemeActiveTextIdx = gMeme.txts.length - 1;
 }
 
 function getClickedMemeIdx(clickedX, clickedY) {
@@ -175,10 +157,11 @@ function isClickedOnMeme(clickedX, clickedY, txt) {
     return true;
 }
 
-    // return (
-    //     (clickedX >= gMeme.txts[gMemeActiveTextIdx].xPos &&
-    //         (clickedX <= gMeme.txts[gMemeActiveTextIdx].xPos +
-    //             gMeme.txts[gMemeActiveTextIdx].width)) &&
-    //     (clickedY >= gMeme.txts[gMemeActiveTextIdx].yPos &&
-    //         (clickedY <= gMeme.txts[gMemeActiveTextIdx].yPos -
-    //             gMeme.txts[gMemeActiveTextIdx].height)));
+function resetModel() {
+    gMeme = {
+        id: 0,
+        image: '',
+        txts: []
+    }
+    createBasicText();
+}
