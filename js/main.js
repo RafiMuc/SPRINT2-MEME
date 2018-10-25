@@ -54,21 +54,14 @@ function renderTextOnCanvas() {
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
         var width = gCtx.measureText(txtObj.txt).width;
-        var height = txtObj.size * 1.1;
+        var height = txtObj.size * 0.7;
         console.log('txtObj.size',txtObj.size); 
         gCtx.lineWidth = 10;
         gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         setTextBoxSize(0, width, height);
-        // if (!txtObj.xPos) addTextPosition(txtObj);
     })
 }
-
-// function addTextPosition(objdd){
-//     objdd.xPos = ((gCanvas.width - objdd.width) / 2);
-//     objdd.yPos = gCanvas.height / +objdd.align;
-//     objdd.height = (gCanvas.height / objdd.size) * 1.5;
-// }
 
 function renederKwFilter() {
     var elImgFilter = document.querySelector('.img-filter')
