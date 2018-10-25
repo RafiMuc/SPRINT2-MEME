@@ -205,7 +205,9 @@ function handleMoveText(ev) {
 
 function handleAddText(){
     createBasicText();
-    
+    renderCanvasControls(gMemeActiveTextIdx);
+    renderCanvas();
+
 }
 
 function handleDeleteText(){
