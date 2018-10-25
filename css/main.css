@@ -70,12 +70,7 @@ canvas {
     border-radius: 10px;
 }
 
-<<<<<<< HEAD
-
 .btns input, .btns select, .btns option, .btns button {
-=======
-.btns input, .btns select, .btns option {
->>>>>>> fab404157be796e510449445a9c336b324c7340d
     background-color: black;
     color: snow;
     border: 0;
@@ -85,6 +80,7 @@ canvas {
     height: 2em;
     text-transform: uppercase;
     text-align: center;
+    margin: 0 2px;
 }
 
 .txt-move-controller {
@@ -125,8 +121,7 @@ a {
     width: 100%;
 }
 
-@media (max-width: 600px) {
-<<<<<<< HEAD
+@media (max-width: 660px) {
     h1 {
         color: #111;
         font-size: 2em;
@@ -150,8 +145,39 @@ a {
         white-space: nowrap;
     }
 
-=======
->>>>>>> fab404157be796e510449445a9c336b324c7340d
+    .btns input, .btns select, .btns option, .btns button {
+        background-color: black;
+        color: snow;
+        border: 0;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        height: 3em;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 5px;
+    }
+
+
+    .btns button{
+        background-color: black;
+        color: snow;
+        border: 0;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        height: 3.5em;
+        width: 3.5em;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0 5px;
+        font-size: 0.7em;
+    }
+
+    i {
+        font-size: 2em;
+    }
+
     footer {
         height: 500px;
     }
