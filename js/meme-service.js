@@ -88,7 +88,6 @@ function setMeme(id, image) {
 }
 
 function createBasicText() {
-    var ref = gMeme.txts.length;
     var memeTxt = {
         txt: '',
         strokeColor: '#000000',
@@ -97,11 +96,11 @@ function createBasicText() {
         size: 80,
         width: 0,
         xPos: 100,
-        yPos: 100 * (1+ref),
+        yPos: 100 * (1 + gMeme.txts.length),
         height: 13.5
     }
     gMeme.txts.push(memeTxt);
-    gMemeActiveTextIdx = ref - 1;
+    gMemeActiveTextIdx = gMeme.txts.length - 1;
 }
 
 // function updateMemeModel(id, txt, strokeColor, fillColor, font, size) {

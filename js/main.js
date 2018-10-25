@@ -94,7 +94,7 @@ function onCanvasClicked(evt) {
 
 function renderCanvasControls(idx) {
     var txt = gMeme.txts[idx];
-    document.querySelector('.txt-input').value = txt.txt;
+    document.querySelector('.txt').value = txt.txt;
     document.querySelector('.fill-color').value = txt.fillColor;
     document.querySelector('.stroke-color').value = txt.strokeColor;
     document.querySelector('.txt-font').value = txt.font;
@@ -204,7 +204,9 @@ function handleMoveText(ev) {
 
 function handleAddText(){
     createBasicText();
-    
+    renderCanvasControls(gMemeActiveTextIdx);
+    renderCanvas();
+
 }
 
 function handleDeleteText(){
