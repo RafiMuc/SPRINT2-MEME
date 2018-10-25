@@ -150,10 +150,10 @@ function setTextBoxSize(idx, w, h) {
 }
 
 // Save new position after dragging text
-function setNewPosition(idx, x, y) {
-    gMeme.txts[idx].xPos = x;
-    gMeme.txts[idx].yPos = y;
-}
+// function setNewPosition(idx, x, y) {
+//     gMeme.txts[idx].xPos = x;
+//     gMeme.txts[idx].yPos = y;
+// }
 
 function getClickedMemeIdx(clickedX, clickedY) {
     var idx = gMeme.txts.findIndex(function (txt) {
