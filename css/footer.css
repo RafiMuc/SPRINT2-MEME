@@ -1,11 +1,12 @@
 footer {
     width: 100%;
-    height: 100px;
-    background-color: lightgray;
+    height: 130px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btns, .txt {
-    margin: 10px 10px 0px 10px;
+    margin: 20px 10px 20px 10px;
 }
 
 footer div:not(:last-child) {

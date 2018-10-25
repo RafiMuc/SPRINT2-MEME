@@ -1,11 +1,11 @@
 'use strict';
 
 function init() {
-    renderImgs('all');
+    renderImgGallery('all');
     renederKwFilter();
 }
 
-function renderImgs(kw) {
+function renderImgGallery(kw) {
     var imgs = filterImgByKw(kw);
     var elHtmlStr = '';
     imgs.forEach((element) => {
@@ -20,10 +20,9 @@ function onSetImgOnCanvas(elImg, id) {
     var elCanvas = document.querySelector('.meme-canvas');
     var elGalleryController = document.querySelector('.gallery-controller');
     var elSaveBtn = document.querySelector('.save-meme-btn');
-    clearCanvas();
     elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
-    renderImgOnCanvas(elImg);
+    renderCanvas();
     elCanvas.style.display = 'block';
     elSaveBtn.style.display = 'inline-block';
 }
@@ -32,10 +31,11 @@ function clearCanvas() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
 }
 
-function renderImgOnCanvas(img) {
+function renderImgOnCanvas() {
     // gCanvas.setAttribute(width, '100%');
     //TODO: calc
     // debugger;
+    var img = gMeme.image;
     var imgWidth = +img.naturalWidth;
     var imgHeight = +img.naturalHeight;
     var ratio = imgHeight / imgWidth
@@ -50,13 +50,13 @@ function renderTextOnCanvs() {
     gMeme.txts.forEach(txtObj => {
         // debugger
         gCtx.font = `${gCanvas.height / +txtObj.size}px ${txtObj.font}`;
-        gCtx.textAlign = "center"
+        // gCtx.textAlign = "center"
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
         // var width = gCtx.measureText(txtObj.txt).width;
         gCtx.lineWidth = 10;
-        gCtx.strokeText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
-        gCtx.fillText(txtObj.txt, gCanvas.width / 2, gCanvas.height / +txtObj.align);
+        gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
+        gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         // if (!txtObj.xPos) addTextPosition(txtObj);
     })
 }
@@ -77,7 +77,7 @@ function renederKwFilter() {
 }
 
 function onSetKwFilter(elValue) {
-    renderImgs(elValue);
+    renderImgGallery(elValue);
 }
 
 function onCanvasClicked(ev) {
@@ -85,21 +85,51 @@ function onCanvasClicked(ev) {
 
 }
 
-function onFooterChange() {
+function renderCanvas () {
+    // debugger;
     clearCanvas();
-    renderImgOnCanvas(gMeme.image);
-    addTextToMeme(
-        {
-            txt: document.querySelector('.txt').value,
-            fillColor: document.querySelector('.fill-color').value,
-            strokeColor: document.querySelector('.stroke-color').value,
-            font: document.querySelector('.txt-font').value,
-            size: document.querySelector('.txt-size').value,
-            align: document.querySelector('.txt-align').value,
-
-        }
-    );
+    renderImgOnCanvas();
     renderTextOnCanvs();
+}
+
+
+//  ****************25/10/18*******************
+//IMPORTANT ---> currently idx 0 is written in each of the new functions in the html.
+//need to remove and get the idx from active input or text
+//need to get the active text: 
+//can be done from class on input if we use multiple inputs 
+//or from click on the text inside the canvas (if we manage to make it work)
+
+function onTextEdit(Idx, value) {
+    updateMemeTxt(Idx, value);
+    renderCanvas();
+}
+
+function onStrokeColorChange(idx, value){
+    updateMemeStrokeColor(idx, value);
+    renderCanvas();
+}
+
+function onFillColorChange(idx, value){
+    updateMemeFillColor(idx, value);
+    renderCanvas();
+}
+
+function onFontChange(idx, value){
+    updateMemeFont(idx, value);
+    renderCanvas();
+}
+
+function onSizeChange(idx, value){
+    updateMemeSize(idx, value);
+    renderCanvas();
+}
+    // updateMemeModel(txtIdx, elTxtVal, elStrokeColorVal, elFillColorVal, elFont, elSize);
+    // renderCanvas()
+
+
+function onTextPropsChange(value) {
+    console.log(value);
 }
 
 function onRestartClicked() {
@@ -110,8 +140,25 @@ function onRestartClicked() {
     elCanvas.style.display = 'none';
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
-    renderImgs('all');
+    renderImgGallery('all');
     elSaveBtn.style.display = 'none';
+}
+
+function onMoveTextUp(idx) {
+    moveTextUp(idx);
+    renderCanvas();
+}
+function onMoveTextRight(idx) {
+    moveTextRight(idx);
+    renderCanvas();
+}
+function onMoveTextLeft(idx) {
+    moveTextLeft(idx);
+    renderCanvas();
+}
+function onMoveTextDown(idx) {
+    moveTextDown(idx);
+    renderCanvas();
 }
 
 function onSaveMeme(elLink) {
