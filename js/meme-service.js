@@ -49,8 +49,8 @@ function getImgs() {
     return gImgs;
 }
 
-function getMemeActiveTextIdx(){
-    if(gMemeActiveTextIdx === -1) gMemeActiveTextIdx = 0;
+function getMemeActiveTextIdx() {
+    if (gMemeActiveTextIdx === -1) gMemeActiveTextIdx = 0;
     return gMemeActiveTextIdx;
 }
 //create
@@ -156,11 +156,20 @@ function setNewPosition(idx, x, y) {
 }
 
 function isOnMeme(clickedX, clickedY) {
-    return (
-        (clickedX >= gMeme.txts[gMemeActiveTextIdx].xPos &&
-            (clickedX <= gMeme.txts[gMemeActiveTextIdx].xPos +
-                gMeme.txts[gMemeActiveTextIdx].width)) &&
-        (clickedY >= gMeme.txts[gMemeActiveTextIdx].yPos &&
-            (clickedY <= gMeme.txts[gMemeActiveTextIdy].xPos -
-                gMeme.txts[gMemeActiveTextIdx].height)));
+    // debugger
+    if (clickedX < gMeme.txts[gMemeActiveTextIdx].xPos) return false;
+    if (clickedX > gMeme.txts[gMemeActiveTextIdx].xPos +
+        gMeme.txts[gMemeActiveTextIdx].width) return false;
+    if (clickedY < gMeme.txts[gMemeActiveTextIdx].yPos -
+        gMeme.txts[gMemeActiveTextIdx].height) return false;
+    if (clickedY > gMeme.txts[gMemeActiveTextIdx].yPos) return false;
+    return true;
+
+    // return (
+    //     (clickedX >= gMeme.txts[gMemeActiveTextIdx].xPos &&
+    //         (clickedX <= gMeme.txts[gMemeActiveTextIdx].xPos +
+    //             gMeme.txts[gMemeActiveTextIdx].width)) &&
+    //     (clickedY >= gMeme.txts[gMemeActiveTextIdx].yPos &&
+    //         (clickedY <= gMeme.txts[gMemeActiveTextIdx].yPos -
+    //             gMeme.txts[gMemeActiveTextIdx].height)));
 }

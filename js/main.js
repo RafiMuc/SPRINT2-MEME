@@ -41,6 +41,11 @@ function renderImgOnCanvas() {
     var ratio = imgHeight / imgWidth
     gCanvas.width = imgWidth;
     gCanvas.height = imgHeight;
+    console.log('imgWidth',imgWidth); 
+
+    if(imgWidth > window.innerWidth) imgWidth = window.innerWidth;
+    var elCanContain = document.querySelector('.meme-canvas');
+    elCanContain.style.width = imgWidth;
 
     gCtx.drawImage(img, 0, 0, imgWidth, imgWidth * ratio);
 }
@@ -55,9 +60,9 @@ function renderTextOnCanvas() {
         gCtx.strokeStyle = txtObj.strokeColor;
         var width = gCtx.measureText(txtObj.txt).width;
         var height = txtObj.size * 0.7;
-        console.log('txtObj.size', txtObj.size);
+        // console.log('txtObj.size', txtObj.size);
         gCtx.lineWidth = 10;
-        gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
+        gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos );
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         setTextBoxSize(0, width, height);
     })
@@ -76,8 +81,18 @@ function onSetKwFilter(elValue) {
     renderImgGallery(elValue);
 }
 
-function onCanvasClicked(ev) {
-    console.log('Is On Meme',isOnMeme(ev.offsetX, ev.offsetY))
+function onCanvasClicked(evt) {
+ 
+    var rect = gCanvas.getBoundingClientRect();
+    console.log('x:', evt.clientX - rect.left); 
+    console.log('y:', evt.clientY - rect.top); 
+    let x = evt.clientX - rect.left
+    let y  = evt.clientY - rect.top
+    // return {
+    //   x: evt.clientX - rect.left,
+    //   y: evt.clientY - rect.top
+    // };
+    console.log('Is On Meme',isOnMeme(x, y))
 
     }
     // fillData()
