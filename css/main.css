@@ -72,7 +72,7 @@ canvas {
 }
 
 
-.btns input, .btns select, .btns option {
+.btns input, .btns select, .btns option, .btns button {
     background-color: black;
     color: snow;
     border: 0;
@@ -124,6 +124,29 @@ a {
 }
 
 @media (max-width: 600px) {
+    h1 {
+        color: #111;
+        font-size: 2em;
+        line-height: 1;
+        text-align: center;
+    }
+    header button, .gallery-controller button {
+        background-color: black;
+        box-shadow: inset 0 0 0 3px snow;
+        color: snow;
+        border-radius: 30px;
+        border: 0;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: bold;
+        line-height: 2.5em;
+        padding: 0 2em;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
+
     footer {
         height: 500px;
     }
