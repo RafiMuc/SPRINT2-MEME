@@ -93,8 +93,9 @@ function onCanvasClicked(evt) {
 }
 
 function renderCanvasControls(idx) {
+    debugger
     var txt = gMeme.txts[idx];
-    document.querySelector('.txt-input').value = txt.txt;
+    document.querySelector('.txt').value = txt.txt;
     document.querySelector('.fill-color').value = txt.fillColor;
     document.querySelector('.stroke-color').value = txt.strokeColor;
     document.querySelector('.txt-font').value = txt.font;
