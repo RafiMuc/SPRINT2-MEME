@@ -181,7 +181,6 @@ function handleMoveText(ev) {
     if (ev.key === 'ArrowRight') moveTextRight(idx);
     if (ev.key === 'ArrowLeft') moveTextLeft(idx);
     renderCanvas();
-    console.log(ev);
 }
 
 
@@ -195,38 +194,39 @@ function handleAddText() {
 function handleDeleteText() {
     var idx = getMemeActiveTextIdx();
     deleteTextFromMeme(idx);
+    document.querySelector('.txt').value ='';
     renderCanvas();
 }
 
-function onMouseDown() {
-    gMouseState = true;
-}
+// function onMouseDown() {
+//     gMouseState = true;
+// }
 
-function onMouseUp() {
-    gMouseState = false;
-}
+// function onMouseUp() {
+//     gMouseState = false;
+// }
 
-function isValidPos(x, y) {
-    return Math.abs(x - gLastPosX) > 40 || Math.abs(y - gLastPosY) > 40;
-}
+// function isValidPos(x, y) {
+//     return Math.abs(x - gLastPosX) > 40 || Math.abs(y - gLastPosY) > 40;
+// }
 
-function dragTxt(ev) {
-    var rect = gCanvas.getBoundingClientRect();
-    var coorX = ev.clientX - rect.left
-    var coorY = ev.clientY - rect.top
-    var isValid = isValidPos(coorX, coorY);
-    if (gMouseState && isValid) {
-        var randX = getRandomIntInclusive(10, 100);
-        ctx.strokeStyle = gShapeColor;
+// function dragTxt(ev) {
+//     var rect = gCanvas.getBoundingClientRect();
+//     var coorX = ev.clientX - rect.left
+//     var coorY = ev.clientY - rect.top
+//     var isValid = isValidPos(coorX, coorY);
+//     if (gMouseState && isValid) {
+//         var randX = getRandomIntInclusive(10, 100);
+//         ctx.strokeStyle = gShapeColor;
 
-        if (gShape === 'square') {
-            ctx.strokeRect(coorX, coorY, randX, randX);
-        } else {
-            ctx.beginPath();
-            ctx.arc(coorX, coorY, randX, 0, Math.PI * 2);
-            ctx.stroke();
-        }
-        gLastPosX = coorX;
-        gLastPosY = coorY;
-    }
-}
+//         if (gShape === 'square') {
+//             ctx.strokeRect(coorX, coorY, randX, randX);
+//         } else {
+//             ctx.beginPath();
+//             ctx.arc(coorX, coorY, randX, 0, Math.PI * 2);
+//             ctx.stroke();
+//         }
+//         gLastPosX = coorX;
+//         gLastPosY = coorY;
+//     }
+// }

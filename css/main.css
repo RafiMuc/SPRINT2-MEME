@@ -123,7 +123,7 @@ a {
     width: 100%;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     footer {
         height: 500px;
     }
@@ -145,4 +145,4 @@ a {
         display: flex;
         margin-left: 50px;
     }
-}
+} */
