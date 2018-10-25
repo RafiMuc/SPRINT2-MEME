@@ -1,0 +1,148 @@
+@import url('helpers.css');
+@import url('img.css');
+@import url('footer.css');
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+body {
+        font-family: 'Helvetica Neue', sans-serif; 
+        margin: 0 auto;
+        background-image: url(../img/bg.png);
+        background-position: bottom;
+        background-attachment: fixed;
+        text-align: center;
+        position: relative;
+        width:  100%;
+
+}
+
+h1 { 
+    color: #111; 
+    font-size: 4em;
+    line-height: 1; 
+    text-align: center; 
+}
+
+.meme-canvas {
+    display: none;
+    /* width: 100%; */
+    margin: 10px auto;
+}
+
+header {
+    text-align: center;
+}
+
+.gallery-controller {
+    margin: 10px auto;
+    text-align: center;
+}
+
+header button, .gallery-controller button {
+    background-color: black;
+    box-shadow: inset 0 0 0 3px snow;
+    color: snow;
+    border-radius: 30px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .75em;
+    font-weight: bold;
+    height: 3.75em;
+    line-height: 3.85em;
+    letter-spacing: 2px;
+    padding: 0 4em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+canvas {
+    /* max-width: 100%; */
+    border: 3px solid snow;
+    border-radius: 10px;
+}
+
+
+.btns input, .btns select, .btns option {
+    background-color: black;
+    color: snow;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    height: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.txt-move-controller {
+    margin: 10px 0;
+}
+
+.txt-move-controller button {
+    background-color: black;
+    color: snow;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    height: 2em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.save-meme-btn {
+    display: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.image-filter-div {
+    margin-top: 10px;
+}
+
+.txt {
+    background-color: white;
+    width: 70%;
+   
+}
+
+.txt-input {
+    width: 100%;
+}
+
+/* @media (max-width: 600px) {
+    footer {
+        height: 500px;
+    }
+    .btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btns>div {
+        width: 100%;
+        margin: 10px 0;
+        border-top: 2px solid black;
+        padding-top: 10px;
+    }
+    .txt {
+        width: 90%;
+        margin: 0 auto;
+    }
+    span {
+        display: flex;
+        margin-left: 50px;
+    }
+} */

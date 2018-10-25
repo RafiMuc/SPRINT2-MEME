@@ -33,7 +33,6 @@ function clearCanvas() {
 }
 
 function renderImgOnCanvas() {
-    // debugger;
     var img = gMeme.image;
     var imgWidth = +img.naturalWidth;
     var imgHeight = +img.naturalHeight;
@@ -41,8 +40,7 @@ function renderImgOnCanvas() {
     gCanvas.width = imgWidth;
     gCanvas.height = imgHeight;
 
-    if (imgWidth > 500) imgWidth = 500;
-    if (window.innerWidth < imgWidth) imgWidth = window.innerWidth * 0.9;
+    if (imgWidth > window.innerWidth) imgWidth = window.innerWidth;
     var elCanContain = document.querySelector('.meme-canvas');
     elCanContain.style.width = imgWidth;
 
@@ -198,7 +196,6 @@ function handleAddText() {
 function handleDeleteText() {
     var idx = getMemeActiveTextIdx();
     deleteTextFromMeme(idx);
-    document.querySelector('.txt').value ='';
     renderCanvas();
 }
 
