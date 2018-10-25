@@ -77,14 +77,13 @@ function onSetKwFilter(elValue) {
 }
 
 function onCanvasClicked(ev) {
-    if (isOnMeme(ev.offsetX, ev.offsetY)) {
-        
+    console.log('Is On Meme',isOnMeme(ev.offsetX, ev.offsetY))
+
     }
     // fillData()
     // console.log('offsetX', ev.offsetX);
     // console.log('offsetY', ev.offsetY);
     // savePosition(idx, ev.offsetX, ev.offsetY);
-}
 
 function renderCanvas() {
     // debugger;
@@ -102,7 +101,6 @@ function renderCanvas() {
 //or from click on the text inside the canvas (if we manage to make it work)
 
 function onTextEdit(value) {
-    debugger;
     var idx = getMemeActiveTextIdx();
     updateMemeTxt(idx, value);
     renderCanvas();
@@ -169,14 +167,6 @@ function onSaveMeme(elLink) {
     elLink.download = 'my-meme.jpg'
 }
 
-<<<<<<< HEAD
-function handleMoveText(ev, idx) {
-    if (gMemeActiveInput < 0) return;
-    if (ev.key === 'ArrowUp') moveTextUp(idx);
-    if (ev.key === 'ArrowDown') moveTextDown(idx);
-    if (ev.key === 'ArrowRight') moveTextRight(idx);
-    if (ev.key === 'ArrowLeft') moveTextLeft(idx);
-=======
 function handleMoveText(ev){
     var idx = getMemeActiveTextIdx();
     if (gMemeActiveTextIdx < 0) return;
@@ -184,7 +174,6 @@ function handleMoveText(ev){
     if(ev.key === 'ArrowDown') moveTextDown(idx);
     if(ev.key === 'ArrowRight') moveTextRight(idx);
     if(ev.key === 'ArrowLeft') moveTextLeft(idx);
->>>>>>> fb2a4aabc864eefa746629ead40b47bcef5ad833
     renderCanvas();
     console.log(ev);
 }

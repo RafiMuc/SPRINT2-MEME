@@ -49,7 +49,7 @@ function getImgs() {
     return gImgs;
 }
 
-function getMemeActiveTextIdx(){
+function getMemeActiveTextIdx() {
     return gMemeActiveTextIdx;
 }
 //create
@@ -143,9 +143,9 @@ function moveTextDown(idx) {
 function setTextBoxSize(idx, w, h) {
     gMeme.txts[idx].width = w;
     gMeme.txts[idx].height = h;
-    console.log('width saved',gMeme.txts[idx].width); 
-    console.log('height saved',gMeme.txts[idx].height);
-    gCtx.clearRect(gMeme.txts[0].xPos, gMeme.txts[0].yPos-h, w, h);
+    // console.log('width saved', gMeme.txts[idx].width);
+    // console.log('height saved', gMeme.txts[idx].height);
+    // gCtx.clearRect(gMeme.txts[0].xPos, gMeme.txts[0].yPos - h, w, h);
 }
 
 // Save new position after dragging text
@@ -154,8 +154,12 @@ function setNewPosition(idx, x, y) {
     gMeme.txts[idx].yPos = y;
 }
 
-function isOnMeme(clickedX, clickedY){
+function isOnMeme(clickedX, clickedY) {
     return (
-        clickedX >= gMemeActiv
-    )
+        (clickedX >= gMeme.txts[gMemeActiveTextIdx].xPos &&
+            (clickedX <= gMeme.txts[gMemeActiveTextIdx].xPos +
+                gMeme.txts[gMemeActiveTextIdx].width)) &&
+        (clickedY >= gMeme.txts[gMemeActiveTextIdx].yPos &&
+            (clickedY <= gMeme.txts[gMemeActiveTextIdy].xPos -
+                gMeme.txts[gMemeActiveTextIdx].height)));
 }
