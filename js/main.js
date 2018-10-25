@@ -165,3 +165,13 @@ function onSaveMeme(elLink) {
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'my-meme.jpg'
 }
+
+function handleMoveText(ev, idx){
+    if (gMemeActiveInput < 0) return;
+    if(ev.key === 'ArrowUp') moveTextUp(idx);
+    if(ev.key === 'ArrowDown') moveTextDown(idx);
+    if(ev.key === 'ArrowRight') moveTextRight(idx);
+    if(ev.key === 'ArrowLeft') moveTextLeft(idx);
+    renderCanvas();
+    console.log(ev);
+}

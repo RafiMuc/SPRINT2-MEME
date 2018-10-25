@@ -28,6 +28,7 @@ var gImgs = [
     { id: 25, imgUrl: 'img/25.jpg', kw: ['movies'] },
 ];
 
+var gMemeActiveInput = -1;
 var gCanvas = document.querySelector('canvas');
 var gCtx = gCanvas.getContext('2d');
 
