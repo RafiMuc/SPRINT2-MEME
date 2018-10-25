@@ -150,3 +150,9 @@ function setNewPosition(idx, x, y) {
     gMeme.txts[idx].xPos = x;
     gMeme.txts[idx].yPos = y;
 }
+
+function isOnMeme(clickedX, clickedY){
+    return (
+        clickedX >= 
+    )
+}

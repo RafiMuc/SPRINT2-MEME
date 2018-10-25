@@ -55,7 +55,7 @@ function renderTextOnCanvas() {
         gCtx.strokeStyle = txtObj.strokeColor;
         var width = gCtx.measureText(txtObj.txt).width;
         var height = txtObj.size * 0.7;
-        console.log('txtObj.size',txtObj.size); 
+        console.log('txtObj.size', txtObj.size);
         gCtx.lineWidth = 10;
         gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
@@ -77,6 +77,10 @@ function onSetKwFilter(elValue) {
 }
 
 function onCanvasClicked(ev) {
+    if (isOnMeme(ev.offsetX, ev.offsetY)) {
+        
+    }
+    // fillData()
     // console.log('offsetX', ev.offsetX);
     // console.log('offsetY', ev.offsetY);
     // savePosition(idx, ev.offsetX, ev.offsetY);
@@ -163,12 +167,12 @@ function onSaveMeme(elLink) {
     elLink.download = 'my-meme.jpg'
 }
 
-function handleMoveText(ev, idx){
+function handleMoveText(ev, idx) {
     if (gMemeActiveInput < 0) return;
-    if(ev.key === 'ArrowUp') moveTextUp(idx);
-    if(ev.key === 'ArrowDown') moveTextDown(idx);
-    if(ev.key === 'ArrowRight') moveTextRight(idx);
-    if(ev.key === 'ArrowLeft') moveTextLeft(idx);
+    if (ev.key === 'ArrowUp') moveTextUp(idx);
+    if (ev.key === 'ArrowDown') moveTextDown(idx);
+    if (ev.key === 'ArrowRight') moveTextRight(idx);
+    if (ev.key === 'ArrowLeft') moveTextLeft(idx);
     renderCanvas();
     console.log(ev);
 }
