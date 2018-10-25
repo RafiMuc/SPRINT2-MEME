@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="init()" onkeyup="handleMoveText(event ,0)">
+<body onload="init()" onkeyup="handleMoveText(event)">
     <header>
         <h1>MEME GENERATOR</h1>
         <button onclick="onRestartClicked()">Restart</button>
@@ -33,7 +33,7 @@
         </div>
         <footer class="flex align-center justify-center direction-col">
             <div class="txt-input">
-                <input type="text" class="txt" onkeyup="onTextEdit(0 , this.value)">
+                <input type="text" class="txt" onkeyup="onTextEdit(this.value)">
                 <input type="text" class="txt" onkeyup="onTextEdit(1)">
             </div>
             <div class="btns flex align-center justify-center">
