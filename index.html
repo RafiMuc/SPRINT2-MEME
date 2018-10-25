@@ -27,10 +27,7 @@
     <div class="gallery-container flex flex-wrap justify-center"></div>
     <div class="meme-canvas">
         <div class="canvas-container">
-<<<<<<< HEAD
             <!-- onmousemove="dragTxt(event)" onmousedown="onMouseDown()" onmouseup="onMouseUp()" -->
-=======
->>>>>>> b307a6742f02a121d791dd5bb77c91b4d121936e
             <canvas onclick="onCanvasClicked(event)"></canvas>
         </div>
         <footer class="flex align-center justify-center direction-col">
@@ -44,34 +41,40 @@
                     <button onclick="onMoveTextLeft()"><i class="fas fa-arrow-left"></i></button>
                     <button onclick="onMoveTextRight()"><i class="fas fa-arrow-right"></i></button>
                 </div>
-                <div>
-                    <span><i class="fas fa-fill-drip"></i></span>
-                    <input type="color" class="fill-color" value="#FFFFFF" onchange="onFillColorChange(this.value)">
+                <div class="flex justify-center">
+                    <div>
+                        <i class="fas fa-fill-drip"></i>
+                        <input type="color" class="fill-color" value="#FFFFFF" onchange="onFillColorChange(this.value)">
+                    </div>
+                    <div>
+                        <i class="fas fa-palette"></i>
+                        <input type="color" class="stroke-color" value="#000000" onchange="onStrokeColorChange(this.value)">
+                    </div>
                 </div>
-                <div>
-                    <span><i class="fas fa-palette"></i></span>
-                    <input type="color" class="stroke-color" value="#000000" onchange="onStrokeColorChange(this.value)">
+                <div class="flex justify-center">
+                    <div>
+                        <i class="fas fa-font"></i>
+                        <select class="txt-font" onchange="onFontChange(this.value)">
+                            <option value="impact">Impact</option>
+                            <option value="ariel black">Ariel Black</option>
+                            <option value="comics sans ms">Comics</option>
+                            <option value="ariel">Ariel</option>
+                            <option value="courier">Courier</option>
+                        </select>
+                    </div>
+                    <div>
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <select class="txt-size" onchange="onSizeChange(this.value)">
+                            <option value=80>Small</option>
+                            <option value=120>Medium</option>
+                            <option value=140>Large</option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <span><i class="fas fa-font"></i></span>
-                    <select class="txt-font" onchange="onFontChange(this.value)">
-                        <option value="impact">Impact</option>
-                        <option value="ariel black">Ariel Black</option>
-                        <option value="comics sans ms">Comics sans ms</option>
-                        <option value="ariel">Ariel</option>
-                        <option value="courier">Courier</option>
-                    </select>
+                <div class="flex justify-center">
+                    <button onclick="handleAddText()"><i class="fas fa-plus"></i></button>
+                    <button onclick="handleDeleteText()"><i class="fas fa-trash"></i></button>
                 </div>
-                <div>
-                    <span><i class="fas fa-arrows-alt-v"></i></span>
-                    <select class="txt-size" onchange="onSizeChange(this.value)">
-                        <option value=80>Small</option>
-                        <option value=120>Medium</option>
-                        <option value=140>Large</option>
-                    </select></div>
-                <div><button onclick="handleAddText()"><i class="fas fa-plus"></i></button></div>
-                <div><button onclick="handleDeleteText()"><i class="fas fa-trash"></i></button></div>
-            </div>
         </footer>
     </div>
 

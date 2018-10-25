@@ -12,22 +12,21 @@ html {
 }
 
 body {
-        font-family: 'Helvetica Neue', sans-serif; 
-        margin: 0 auto;
-        background-image: url(../img/bg.png);
-        background-position: bottom;
-        background-attachment: fixed;
-        text-align: center;
-        position: relative;
-        width:  100%;
-
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0 auto;
+    background-image: url(../img/bg.png);
+    background-position: bottom;
+    background-attachment: fixed;
+    text-align: center;
+    position: relative;
+    width: 100%;
 }
 
-h1 { 
-    color: #111; 
+h1 {
+    color: #111;
     font-size: 4em;
-    line-height: 1; 
-    text-align: center; 
+    line-height: 1;
+    text-align: center;
 }
 
 .meme-canvas {
@@ -70,7 +69,6 @@ canvas {
     border: 3px solid snow;
     border-radius: 10px;
 }
-
 
 .btns input, .btns select, .btns option {
     background-color: black;
@@ -116,14 +114,13 @@ a {
 .txt {
     background-color: white;
     width: 70%;
-   
 }
 
 .txt-input {
     width: 100%;
 }
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
     footer {
         height: 500px;
     }
@@ -145,4 +142,4 @@ a {
         display: flex;
         margin-left: 50px;
     }
-} */
+}
