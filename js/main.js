@@ -181,7 +181,6 @@ function handleMoveText(ev) {
     if (ev.key === 'ArrowRight') moveTextRight(idx);
     if (ev.key === 'ArrowLeft') moveTextLeft(idx);
     renderCanvas();
-    console.log(ev);
 }
 
 
