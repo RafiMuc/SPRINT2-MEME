@@ -35,7 +35,7 @@ var gCtx = gCanvas.getContext('2d');
 var gMeme = {
     id: 0,
     image: '',
-    txts: [createBasicText()]
+    txts: []
 }
 
 function getImgById(id) {
@@ -88,6 +88,7 @@ function setMeme(id, image) {
 }
 
 function createBasicText() {
+    var ref = gMeme.txts.length;
     var memeTxt = {
         txt: '',
         strokeColor: '#000000',
@@ -96,10 +97,11 @@ function createBasicText() {
         size: 80,
         width: 0,
         xPos: 100,
-        yPos: 100,
+        yPos: 100 * (1+ref),
         height: 13.5
     }
-    return memeTxt;
+    gMeme.txts.push(memeTxt);
+    gMemeActiveTextIdx = ref - 1;
 }
 
 // function updateMemeModel(id, txt, strokeColor, fillColor, font, size) {
