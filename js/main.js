@@ -1,6 +1,7 @@
 'use strict';
 
 function init() {
+    createBasicText();
     renderImgGallery('all');
     renederKwFilter();
 }
@@ -198,4 +199,14 @@ function handleMoveText(ev) {
     if (ev.key === 'ArrowLeft') moveTextLeft(idx);
     renderCanvas();
     console.log(ev);
+}
+
+
+function handleAddText(){
+    createBasicText();
+    
+}
+
+function handleDeleteText(){
+
 }
