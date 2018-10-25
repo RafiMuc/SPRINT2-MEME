@@ -82,13 +82,13 @@ function setMeme(id, image) {
     gMeme.image = image;
 }
 
-function createBasicText(){
+function createBasicText() {
     var memeTxt = {
         txt: '',
         strokeColor: '#000000',
         fillColor: '#ffffff',
         font: 'impact',
-        size: 9,
+        size: 80,
         width: 0,
         xPos: 100,
         yPos: 100,
@@ -109,30 +109,43 @@ function createBasicText(){
 //***************25/10/18******************
 //can be united to one updete meme function .... maybe
 
-function updateMemeTxt(idx, txt){
+function updateMemeTxt(idx, txt) {
     gMeme.txts[idx].txt = txt
 }
-function updateMemeStrokeColor(idx, strokeColor){
+function updateMemeStrokeColor(idx, strokeColor) {
     gMeme.txts[idx].strokeColor = strokeColor
 }
-function updateMemeFillColor(idx, fillColor){
+function updateMemeFillColor(idx, fillColor) {
     gMeme.txts[idx].fillColor = fillColor
 }
-function updateMemeFont(idx, font){
+function updateMemeFont(idx, font) {
     gMeme.txts[idx].font = font
 }
-function updateMemeSize(idx, size){
+function updateMemeSize(idx, size) {
     gMeme.txts[idx].size = size
 }
-function moveTextUp(idx){
+function moveTextUp(idx) {
     gMeme.txts[idx].yPos -= 20;
 }
-function moveTextRight(idx){
+function moveTextRight(idx) {
     gMeme.txts[idx].xPos += 20;
 }
-function moveTextLeft(idx){
+function moveTextLeft(idx) {
     gMeme.txts[idx].xPos -= 20;
 }
-function moveTextDown(idx){
+function moveTextDown(idx) {
     gMeme.txts[idx].yPos += 20;
+}
+function setTextBoxSize(idx, w, h) {
+    gMeme.txts[idx].width = w;
+    gMeme.txts[idx].height = h;
+    console.log('width saved',gMeme.txts[idx].width); 
+    console.log('height saved',gMeme.txts[idx].height);
+    gCtx.clearRect(gMeme.txts[0].xPos, gMeme.txts[0].yPos-h, w, h);
+}
+
+// Save new position after dragging text
+function setNewPosition(idx, x, y) {
+    gMeme.txts[idx].xPos = x;
+    gMeme.txts[idx].yPos = y;
 }

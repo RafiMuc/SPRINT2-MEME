@@ -45,18 +45,21 @@ function renderImgOnCanvas() {
     gCtx.drawImage(img, 0, 0, imgWidth, imgWidth * ratio);
 }
 
-function renderTextOnCanvs() {
+function renderTextOnCanvas() {
     if (!gMeme.txts.length) return;
     gMeme.txts.forEach(txtObj => {
         // debugger
-        gCtx.font = `${gCanvas.height / +txtObj.size}px ${txtObj.font}`;
+        gCtx.font = `${txtObj.size}px ${txtObj.font}`;
         // gCtx.textAlign = "center"
         gCtx.fillStyle = txtObj.fillColor;
         gCtx.strokeStyle = txtObj.strokeColor;
-        // var width = gCtx.measureText(txtObj.txt).width;
+        var width = gCtx.measureText(txtObj.txt).width;
+        var height = txtObj.size * 1.1;
+        console.log('txtObj.size',txtObj.size); 
         gCtx.lineWidth = 10;
         gCtx.strokeText(txtObj.txt, txtObj.xPos, txtObj.yPos);
         gCtx.fillText(txtObj.txt, txtObj.xPos, txtObj.yPos);
+        setTextBoxSize(0, width, height);
         // if (!txtObj.xPos) addTextPosition(txtObj);
     })
 }
@@ -81,15 +84,16 @@ function onSetKwFilter(elValue) {
 }
 
 function onCanvasClicked(ev) {
-    console.log('Canvas clicked', ev);
-
+    // console.log('offsetX', ev.offsetX);
+    // console.log('offsetY', ev.offsetY);
+    // savePosition(idx, ev.offsetX, ev.offsetY);
 }
 
-function renderCanvas () {
+function renderCanvas() {
     // debugger;
     clearCanvas();
     renderImgOnCanvas();
-    renderTextOnCanvs();
+    renderTextOnCanvas();
 }
 
 
@@ -100,32 +104,32 @@ function renderCanvas () {
 //can be done from class on input if we use multiple inputs 
 //or from click on the text inside the canvas (if we manage to make it work)
 
-function onTextEdit(Idx, value) {
-    updateMemeTxt(Idx, value);
+function onTextEdit(idx, value) {
+    updateMemeTxt(idx, value);
     renderCanvas();
 }
 
-function onStrokeColorChange(idx, value){
+function onStrokeColorChange(idx, value) {
     updateMemeStrokeColor(idx, value);
     renderCanvas();
 }
 
-function onFillColorChange(idx, value){
+function onFillColorChange(idx, value) {
     updateMemeFillColor(idx, value);
     renderCanvas();
 }
 
-function onFontChange(idx, value){
+function onFontChange(idx, value) {
     updateMemeFont(idx, value);
     renderCanvas();
 }
 
-function onSizeChange(idx, value){
+function onSizeChange(idx, value) {
     updateMemeSize(idx, value);
     renderCanvas();
 }
-    // updateMemeModel(txtIdx, elTxtVal, elStrokeColorVal, elFillColorVal, elFont, elSize);
-    // renderCanvas()
+// updateMemeModel(txtIdx, elTxtVal, elStrokeColorVal, elFillColorVal, elFont, elSize);
+// renderCanvas()
 
 
 function onTextPropsChange(value) {
