@@ -49,7 +49,8 @@ function getImgs() {
     return gImgs;
 }
 
-function getMemeActiveTextIdx() {
+function getMemeActiveTextIdx(){
+    if(gMemeActiveTextIdx === -1) gMemeActiveTextIdx = 0;
     return gMemeActiveTextIdx;
 }
 //create
