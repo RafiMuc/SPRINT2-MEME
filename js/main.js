@@ -98,28 +98,31 @@ function renderCanvas() {
 //or from click on the text inside the canvas (if we manage to make it work)
 
 function onTextEdit(value) {
-    debugger;
-    var idx = getMemeActiveTextIdx();
+    var idx =getMemeActiveTextIdx();
     updateMemeTxt(idx, value);
     renderCanvas();
 }
 
-function onStrokeColorChange(idx, value) {
+function onStrokeColorChange(value) {
+    var idx =getMemeActiveTextIdx();
     updateMemeStrokeColor(idx, value);
     renderCanvas();
 }
 
-function onFillColorChange(idx, value) {
+function onFillColorChange(value) {
+    var idx =getMemeActiveTextIdx();
     updateMemeFillColor(idx, value);
     renderCanvas();
 }
 
-function onFontChange(idx, value) {
+function onFontChange(value) {
+    var idx =getMemeActiveTextIdx();
     updateMemeFont(idx, value);
     renderCanvas();
 }
 
-function onSizeChange(idx, value) {
+function onSizeChange(value) {
+    var idx =getMemeActiveTextIdx();
     updateMemeSize(idx, value);
     renderCanvas();
 }
@@ -143,19 +146,23 @@ function onRestartClicked() {
     elSaveBtn.style.display = 'none';
 }
 
-function onMoveTextUp(idx) {
+function onMoveTextUp() {
+    var idx =getMemeActiveTextIdx();
     moveTextUp(idx);
     renderCanvas();
 }
-function onMoveTextRight(idx) {
+function onMoveTextRight() {
+    var idx =getMemeActiveTextIdx();
     moveTextRight(idx);
     renderCanvas();
 }
-function onMoveTextLeft(idx) {
+function onMoveTextLeft() {
+    var idx =getMemeActiveTextIdx();
     moveTextLeft(idx);
     renderCanvas();
 }
-function onMoveTextDown(idx) {
+function onMoveTextDown() {
+    var idx =getMemeActiveTextIdx();
     moveTextDown(idx);
     renderCanvas();
 }
