@@ -153,6 +153,6 @@ function setNewPosition(idx, x, y) {
 
 function isOnMeme(clickedX, clickedY){
     return (
-        clickedX >= 
+        clickedX >= gMemeActiv
     )
 }
