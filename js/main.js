@@ -13,6 +13,7 @@ function renderImgGallery(kw) {
         elHtmlStr += `<div class="imgDiv flex"><img src="${element.imgUrl}" onclick="onSetImgOnCanvas(this, ${element.id})" /></div>`
     });
     document.querySelector('.gallery-container').innerHTML = elHtmlStr;
+    document.querySelector('.restart-btn').style.display = 'none';
 }
 
 function onSetImgOnCanvas(elImg, id) {
@@ -21,11 +22,13 @@ function onSetImgOnCanvas(elImg, id) {
     var elCanvas = document.querySelector('.meme-canvas');
     var elGalleryController = document.querySelector('.gallery-controller');
     var elSaveBtn = document.querySelector('.save-meme-btn');
+    var elRestartBtn = document.querySelector('.restart-btn');
     elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
     renderCanvas();
     elCanvas.style.display = 'block';
     elSaveBtn.style.display = 'inline-block';
+    elRestartBtn.style.display = 'inline-block';
 }
 
 function clearCanvas() {
@@ -184,6 +187,7 @@ function handleMoveText(ev) {
     if (ev.key === 'ArrowDown') moveTextDown(idx);
     if (ev.key === 'ArrowRight') moveTextRight(idx);
     if (ev.key === 'ArrowLeft') moveTextLeft(idx);
+    if (ev.key === 'Enter') handleAddText();
     renderCanvas();
 }
 
