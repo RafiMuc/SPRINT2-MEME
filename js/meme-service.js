@@ -155,15 +155,24 @@ function setNewPosition(idx, x, y) {
     gMeme.txts[idx].yPos = y;
 }
 
-function isOnMeme(clickedX, clickedY) {
-    // debugger
-    if (clickedX < gMeme.txts[gMemeActiveTextIdx].xPos) return false;
-    if (clickedX > gMeme.txts[gMemeActiveTextIdx].xPos +
-        gMeme.txts[gMemeActiveTextIdx].width) return false;
-    if (clickedY < gMeme.txts[gMemeActiveTextIdx].yPos -
-        gMeme.txts[gMemeActiveTextIdx].height) return false;
-    if (clickedY > gMeme.txts[gMemeActiveTextIdx].yPos) return false;
+function getClickedMemeIdx(clickedX, clickedY) {
+    var idx = gMeme.txts.findIndex(function (txt) {
+        return isClickedOnMeme(clickedX, clickedY, txt)
+    })
+    if (idx === -1) idx = gMemeActiveTextIdx;
+    else gMemeActiveTextIdx = idx;
+    return idx;
+}
+
+function isClickedOnMeme(clickedX, clickedY, txt) {
+    if (clickedX < txt.xPos) return false;
+    if (clickedX > txt.xPos +
+        txt.width) return false;
+    if (clickedY < txt.yPos -
+        txt.height) return false;
+    if (clickedY > txt.yPos) return false;
     return true;
+}
 
     // return (
     //     (clickedX >= gMeme.txts[gMemeActiveTextIdx].xPos &&
@@ -172,4 +181,3 @@ function isOnMeme(clickedX, clickedY) {
     //     (clickedY >= gMeme.txts[gMemeActiveTextIdx].yPos &&
     //         (clickedY <= gMeme.txts[gMemeActiveTextIdx].yPos -
     //             gMeme.txts[gMemeActiveTextIdx].height)));
-}
