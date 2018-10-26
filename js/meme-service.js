@@ -1,4 +1,5 @@
 'use strict';
+var gMouseDown = false;
 
 var gImgs = [
     { id: 1, imgUrl: 'img/1.jpg', kw: ['grumpy', 'politics', 'trump'] },

@@ -202,39 +202,25 @@ function handleAddText() {
 function handleDeleteText() {
     var idx = getMemeActiveTextIdx();
     deleteTextFromMeme(idx);
-    document.querySelector('.txt').value ='';
+    document.querySelector('.txt').value = '';
     renderCanvas();
 }
 
-// function onMouseDown() {
-//     gMouseState = true;
-// }
+function onMouseDown() {
+    gMouseDown = true;
+}
 
-// function onMouseUp() {
-//     gMouseState = false;
-// }
+function onMouseUp() {
+    gMouseDown = false;
+}
 
-// function isValidPos(x, y) {
-//     return Math.abs(x - gLastPosX) > 40 || Math.abs(y - gLastPosY) > 40;
-// }
-
-// function dragTxt(ev) {
-//     var rect = gCanvas.getBoundingClientRect();
-//     var coorX = ev.clientX - rect.left
-//     var coorY = ev.clientY - rect.top
-//     var isValid = isValidPos(coorX, coorY);
-//     if (gMouseState && isValid) {
-//         var randX = getRandomIntInclusive(10, 100);
-//         ctx.strokeStyle = gShapeColor;
-
-//         if (gShape === 'square') {
-//             ctx.strokeRect(coorX, coorY, randX, randX);
-//         } else {
-//             ctx.beginPath();
-//             ctx.arc(coorX, coorY, randX, 0, Math.PI * 2);
-//             ctx.stroke();
-//         }
-//         gLastPosX = coorX;
-//         gLastPosY = coorY;
-//     }
-// }
+function dragText(ev) {
+    if (!gMeme.txts.length || !gMouseDown) return;
+    var rect = gCanvas.getBoundingClientRect();
+    var coorX = ev.clientX - rect.left
+    var coorY = ev.clientY - rect.top
+    var txt = gMeme.txts[gMemeActiveTextIdx];
+    txt.xPos = coorX;
+    txt.yPos = coorY;
+    renderCanvas();
+}
