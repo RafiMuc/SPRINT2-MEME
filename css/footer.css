@@ -9,7 +9,3 @@ footer {
     margin: 20px 10px 20px 10px;
 }
 
-footer div:not(:last-child) {
-    padding-right: 20px;
-}
-

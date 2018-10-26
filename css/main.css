@@ -179,8 +179,14 @@ a {
     }
 
     footer {
-        height: 500px;
+        height: 360px;
     }
+
+    .txt-input {
+        padding: 0;
+    }
+
+    
     .btns {
         flex-direction: column;
         width: 100%;

@@ -99,7 +99,7 @@ function createBasicText() {
         strokeColor: '#000000',
         fillColor: '#ffffff',
         font: 'impact',
-        size: 80,
+        size: 50,
         width: 0,
         xPos: 100,
         yPos: 100 * (1 + gMeme.txts.length),
