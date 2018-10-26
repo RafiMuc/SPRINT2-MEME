@@ -26,6 +26,7 @@ function onSetImgOnCanvas(elImg, id) {
     elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
     renderCanvas();
+    renderCanvasControls(0);
     elCanvas.style.display = 'block';
     elSaveBtn.style.display = 'inline-block';
     elRestartBtn.style.display = 'inline-block';
@@ -150,7 +151,7 @@ function onRestartClicked() {
     elCanvas.style.display = 'none';
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
-    renderImgGallery('all');
+    init();
     elSaveBtn.style.display = 'none';
 }
 

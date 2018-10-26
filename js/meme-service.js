@@ -179,7 +179,6 @@ function resetModel() {
         image: '',
         txts: []
     }
-    createBasicText();
 }
 
 
