@@ -17,9 +17,11 @@
         <button class="save-meme-btn"><a onclick="onSaveMeme(this)">Save Meme</a></button>
     </header>
     
+    <div class="virtual-gallery" style="display: none;"></div>
     <div class="gallery-controller">
         <div>
             <button onclick="uploadFile()">Upload your own picture</button>
+            <button onclick="handleCreateRandomMeme()">Create random meme</button>
         </div>
       
         <div class="image-filter-div">
@@ -37,10 +39,10 @@
             </div>
             <div class="btns flex align-center justify-center">
                 <div class="txt-move-controller">
-                    <button onclick="onMoveTextUp()"><i class="fas fa-arrow-up"></i></button>
-                    <button onclick="onMoveTextDown()"><i class="fas fa-arrow-down"></i></button>
-                    <button onclick="onMoveTextLeft()"><i class="fas fa-arrow-left"></i></button>
-                    <button onclick="onMoveTextRight()"><i class="fas fa-arrow-right"></i></button>
+                    <button onclick="onMoveText('up')"><i class="fas fa-arrow-up"></i></button>
+                    <button onclick="onMoveText('down')"><i class="fas fa-arrow-down"></i></button>
+                    <button onclick="onMoveText('left')"><i class="fas fa-arrow-left"></i></button>
+                    <button onclick="onMoveText('right')"><i class="fas fa-arrow-right"></i></button>
                 </div>
                 <div class="flex justify-center">
                     <div>

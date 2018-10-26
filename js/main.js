@@ -6,6 +6,7 @@ function init() {
     renederKwFilter();
 }
 
+
 function renderImgGallery(kw) {
     var imgs = filterImgByKw(kw);
     var elHtmlStr = '';
@@ -13,6 +14,18 @@ function renderImgGallery(kw) {
         elHtmlStr += `<div class="imgDiv flex"><img src="${element.imgUrl}" onclick="onSetImgOnCanvas(this, ${element.id})" /></div>`
     });
     document.querySelector('.gallery-container').innerHTML = elHtmlStr;
+    document.querySelector('.restart-btn').style.display = 'none';
+}
+
+function handleCreateRandomMeme() {
+    createRandomMeme();
+    renderVirtualImg();
+}
+
+function renderVirtualImg() {
+    var imgId = gMeme.id;
+    var imgHtml = `<img src="img/${imgId}.jpg" onload="onSetImgOnCanvas(this, ${imgId})" />`
+    document.querySelector('.virtual-gallery').innerHTML = imgHtml;
     document.querySelector('.restart-btn').style.display = 'none';
 }
 
@@ -155,24 +168,33 @@ function onRestartClicked() {
     elSaveBtn.style.display = 'none';
 }
 
-function onMoveTextUp() {
+// function onMoveTextUp() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextUp(idx);
+//     renderCanvas();
+// }
+// function onMoveTextRight() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextRight(idx);
+//     renderCanvas();
+// }
+// function onMoveTextLeft() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextLeft(idx);
+//     renderCanvas();
+// }
+// function onMoveTextDown() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextDown(idx);
+//     renderCanvas();
+// }
+
+function onMoveText(val){
     var idx = getMemeActiveTextIdx();
-    moveTextUp(idx);
-    renderCanvas();
-}
-function onMoveTextRight() {
-    var idx = getMemeActiveTextIdx();
-    moveTextRight(idx);
-    renderCanvas();
-}
-function onMoveTextLeft() {
-    var idx = getMemeActiveTextIdx();
-    moveTextLeft(idx);
-    renderCanvas();
-}
-function onMoveTextDown() {
-    var idx = getMemeActiveTextIdx();
-    moveTextDown(idx);
+    if (val === 'up') moveTextUp(idx);
+    if (val === 'down') moveTextDown(idx);
+    if (val === 'right') moveTextRight(idx);
+    if (val === 'left') moveTextLeft(idx);
     renderCanvas();
 }
 

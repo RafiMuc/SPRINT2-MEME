@@ -80,18 +80,21 @@ function setMeme(id, image) {
     gMeme.image = image;
 }
 
-// function createRandomMeme(){
-//     var randNum25 = getRandomInt(25);
-//     gMeme.id = randNum25;
-//     gMeme.image = `<img src='img/${randNum25}.jpg' />`;
-//     createBasicText();
-//     var randNum1 = getRandomInt(gRandomLines.length);
-//     gMeme.txts[0].txt = gRandomLines[randNum1];
-//     gRandomLines.splice(randNum1, 1);
-//     var randNum2 = getRandomInt(gRandomLines.length);
-//     gMeme.txts[1].txt = gRandomLines[randNum2];
-//     gMeme.txts[1].yPos = 400;
-// }
+function createRandomMeme(){
+    var tempRandLines = [];
+    gRandomLines.forEach(function(line){
+        tempRandLines.push(line);
+    })
+    var randNum25 = getRandomInt(25);
+    gMeme.id = randNum25;
+    createBasicText();
+    var randNum1 = getRandomInt(tempRandLines.length);
+    gMeme.txts[0].txt = tempRandLines[randNum1];
+    tempRandLines.splice(randNum1, 1);
+    var randNum2 = getRandomInt(tempRandLines.length);
+    gMeme.txts[1].txt = tempRandLines[randNum2];
+    gMeme.txts[1].yPos = 400;
+}
 
 function createBasicText() {
     var memeTxt = {
@@ -102,7 +105,7 @@ function createBasicText() {
         size: 50,
         width: 0,
         xPos: 100,
-        yPos: 100 * (1 + gMeme.txts.length),
+        yPos: 70 * (1 + gMeme.txts.length),
         height: 13.5
     }
     gMeme.txts.push(memeTxt);
