@@ -83,7 +83,7 @@ function onSetKwFilter(elValue) {
 }
 
 function onCanvasClicked(evt) {
-
+    gMouseDown = true;
     var rect = gCanvas.getBoundingClientRect();
     let x = evt.clientX - rect.left
     let y = evt.clientY - rect.top
@@ -206,9 +206,9 @@ function handleDeleteText() {
     renderCanvas();
 }
 
-function onMouseDown() {
-    gMouseDown = true;
-}
+// function onMouseDown() {
+//     gMouseDown = true;
+// }
 
 function onMouseUp() {
     gMouseDown = false;
