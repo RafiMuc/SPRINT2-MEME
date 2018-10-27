@@ -36,7 +36,6 @@ function clearCanvas() {
 }
 
 function renderImgOnCanvas() {
-    // debugger;
     var img = gMeme.image;
     var imgWidth = +img.naturalWidth;
     var imgHeight = +img.naturalHeight;
@@ -207,11 +206,11 @@ function handleDeleteText() {
 }
 
 function onMouseDown() {
-    gMouseDown = true;
+    mouseStateToggle();
 }
 
 function onMouseUp() {
-    gMouseDown = false;
+    mouseStateToggle();
 }
 
 function dragText(ev) {
