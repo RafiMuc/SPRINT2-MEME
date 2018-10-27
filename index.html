@@ -21,8 +21,7 @@
     <div class="gallery-controller">
         <div>
             <label for="file-upload" class="upload-input">Upload your own picture</label>
-            
-            <input id="file-upload" type="file" accept="image/*"></button>
+            <input id="file-upload" type="file" accept="image/*" onchange="onFileChoose(this)" value="mypic.jpg"></button>
             <button onclick="handleCreateRandomMeme()">Create random meme</button>
         </div>
       
@@ -37,7 +36,7 @@
         </div>
         <footer class="flex align-center justify-center direction-col">
             <div class="txt-input">
-                <input type="text" class="txt" onkeyup="onTextEdit(this.value)" placeholder="Type a new Mem">
+                <input type="text" class="txt" onkeyup="onTextEdit(this.value)" placeholder="Type a new Meme">
             </div>
             <div class="btns flex align-center justify-center">
                 <div class="txt-move-controller">

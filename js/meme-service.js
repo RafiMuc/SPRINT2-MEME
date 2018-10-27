@@ -80,9 +80,9 @@ function setMeme(id, image) {
     gMeme.image = image;
 }
 
-function createRandomMeme(){
+function createRandomMeme() {
     var tempRandLines = [];
-    gRandomLines.forEach(function(line){
+    gRandomLines.forEach(function (line) {
         tempRandLines.push(line);
     })
     var randNum25 = getRandomInt(25);
@@ -184,11 +184,10 @@ function resetModel() {
     }
 }
 
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+}
 
-  function mouseStateToggle(){
-      return gMouseDown = !gMouseDown;
-  }
+function mouseStateToggle() {
+    return gMouseDown = !gMouseDown;
+}
