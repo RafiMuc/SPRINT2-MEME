@@ -197,8 +197,11 @@ a {
         display: flex;
         margin-left: 50px;
     }
+    .upload-input {
+        margin-bottom: 10px;
+    }
 }
 
 #file-upload {
-    opacity: 0;
+    display: none;
 }
