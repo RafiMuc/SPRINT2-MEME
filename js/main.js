@@ -50,6 +50,7 @@ function clearCanvas() {
 }
 
 function renderImgOnCanvas() {
+    // debugger;
     var img = gMeme.image;
     var imgWidth = +img.naturalWidth;
     var imgHeight = +img.naturalHeight;
@@ -167,27 +168,6 @@ function onRestartClicked() {
     elSaveBtn.style.display = 'none';
 }
 
-// function onMoveTextUp() {
-//     var idx = getMemeActiveTextIdx();
-//     moveTextUp(idx);
-//     renderCanvas();
-// }
-// function onMoveTextRight() {
-//     var idx = getMemeActiveTextIdx();
-//     moveTextRight(idx);
-//     renderCanvas();
-// }
-// function onMoveTextLeft() {
-//     var idx = getMemeActiveTextIdx();
-//     moveTextLeft(idx);
-//     renderCanvas();
-// }
-// function onMoveTextDown() {
-//     var idx = getMemeActiveTextIdx();
-//     moveTextDown(idx);
-//     renderCanvas();
-// }
-
 function onMoveText(val) {
     var idx = getMemeActiveTextIdx();
     if (val === 'up') moveTextUp(idx);
@@ -228,39 +208,21 @@ function handleDeleteText() {
     renderCanvas();
 }
 
+// function onMouseDown() {
+//     gMouseDown = true;
+// }
+
 function onMouseUp() {
-    mouseStateToggle();
+    gMouseDown = false;
 }
 
 function dragText(ev) {
     if (!gMeme.txts.length || !gMouseDown) return;
     var rect = gCanvas.getBoundingClientRect();
-    var coorX = ev.clientX - rect.left;
-    var coorY = ev.clientY - rect.top;
+    var coorX = ev.clientX - rect.left
+    var coorY = ev.clientY - rect.top
     var txt = gMeme.txts[gMemeActiveTextIdx];
     txt.xPos = coorX;
     txt.yPos = coorY;
     renderCanvas();
-}
-
-function onFileChoose(el) {
-    renderImage(el.files[0]);
-}
-
-function renderImage(file) {
-
-    // generate a new FileReader object
-    var imgId = gMeme.id;
-    var reader = new FileReader();
-
-    // inject an image with the src url
-    reader.onload = function (event) {
-        let imgUrl = event.target.result;
-        var imgHtml = `<img src="${imgUrl}" onload="onSetImgOnCanvas(this, ${imgId})" />`
-        document.querySelector('.virtual-gallery').innerHTML = imgHtml;
-        document.querySelector('.restart-btn').style.display = 'none';
-    }
-    
-    // when the file is read it triggers the onload event above.
-    reader.readAsDataURL(file);
 }
