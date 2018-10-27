@@ -20,8 +20,9 @@
     <div class="virtual-gallery" style="display: none;"></div>
     <div class="gallery-controller">
         <div>
-            <input class="upload-input" type="file" onclick="uploadFile()">Upload your own picture</button>
-            <button onclick="uploadFile()">Upload your own picture</button>
+            <label for="file-upload" class="upload-input">Upload your own picture</label>
+            
+            <input id="file-upload" type="file" accept="image/*"></button>
             <button onclick="handleCreateRandomMeme()">Create random meme</button>
         </div>
       

@@ -228,15 +228,9 @@ function handleDeleteText() {
     renderCanvas();
 }
 
-<<<<<<< HEAD
-function onMouseDown() {
-    mouseStateToggle();
-}
-=======
 // function onMouseDown() {
 //     gMouseDown = true;
 // }
->>>>>>> 43df7e68e1a778bfbc025a3e84b7049b70bc578e
 
 function onMouseUp() {
     mouseStateToggle();
