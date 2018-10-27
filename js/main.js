@@ -6,6 +6,7 @@ function init() {
     renederKwFilter();
 }
 
+
 function renderImgGallery(kw) {
     var imgs = filterImgByKw(kw);
     var elHtmlStr = '';
@@ -13,6 +14,18 @@ function renderImgGallery(kw) {
         elHtmlStr += `<div class="imgDiv flex"><img src="${element.imgUrl}" onclick="onSetImgOnCanvas(this, ${element.id})" /></div>`
     });
     document.querySelector('.gallery-container').innerHTML = elHtmlStr;
+    document.querySelector('.restart-btn').style.display = 'none';
+}
+
+function handleCreateRandomMeme() {
+    createRandomMeme();
+    renderVirtualImg();
+}
+
+function renderVirtualImg() {
+    var imgId = gMeme.id;
+    var imgHtml = `<img src="img/${imgId}.jpg" onload="onSetImgOnCanvas(this, ${imgId})" />`
+    document.querySelector('.virtual-gallery').innerHTML = imgHtml;
     document.querySelector('.restart-btn').style.display = 'none';
 }
 
@@ -26,6 +39,7 @@ function onSetImgOnCanvas(elImg, id) {
     elGalleryController.style.display = 'none';
     elGallery.style.display = 'none';
     renderCanvas();
+    renderCanvasControls(0);
     elCanvas.style.display = 'block';
     elSaveBtn.style.display = 'inline-block';
     elRestartBtn.style.display = 'inline-block';
@@ -82,7 +96,7 @@ function onSetKwFilter(elValue) {
 }
 
 function onCanvasClicked(evt) {
-
+    gMouseDown = true;
     var rect = gCanvas.getBoundingClientRect();
     let x = evt.clientX - rect.left
     let y = evt.clientY - rect.top
@@ -149,28 +163,37 @@ function onRestartClicked() {
     elCanvas.style.display = 'none';
     elGalleryController.style.display = 'block';
     elGallery.style.display = 'flex';
-    renderImgGallery('all');
+    init();
     elSaveBtn.style.display = 'none';
 }
 
-function onMoveTextUp() {
+// function onMoveTextUp() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextUp(idx);
+//     renderCanvas();
+// }
+// function onMoveTextRight() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextRight(idx);
+//     renderCanvas();
+// }
+// function onMoveTextLeft() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextLeft(idx);
+//     renderCanvas();
+// }
+// function onMoveTextDown() {
+//     var idx = getMemeActiveTextIdx();
+//     moveTextDown(idx);
+//     renderCanvas();
+// }
+
+function onMoveText(val){
     var idx = getMemeActiveTextIdx();
-    moveTextUp(idx);
-    renderCanvas();
-}
-function onMoveTextRight() {
-    var idx = getMemeActiveTextIdx();
-    moveTextRight(idx);
-    renderCanvas();
-}
-function onMoveTextLeft() {
-    var idx = getMemeActiveTextIdx();
-    moveTextLeft(idx);
-    renderCanvas();
-}
-function onMoveTextDown() {
-    var idx = getMemeActiveTextIdx();
-    moveTextDown(idx);
+    if (val === 'up') moveTextUp(idx);
+    if (val === 'down') moveTextDown(idx);
+    if (val === 'right') moveTextRight(idx);
+    if (val === 'left') moveTextLeft(idx);
     renderCanvas();
 }
 
@@ -205,9 +228,15 @@ function handleDeleteText() {
     renderCanvas();
 }
 
+<<<<<<< HEAD
 function onMouseDown() {
     mouseStateToggle();
 }
+=======
+// function onMouseDown() {
+//     gMouseDown = true;
+// }
+>>>>>>> 43df7e68e1a778bfbc025a3e84b7049b70bc578e
 
 function onMouseUp() {
     mouseStateToggle();
