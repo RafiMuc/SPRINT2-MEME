@@ -29,7 +29,7 @@ var gImgs = [
     { id: 25, imgUrl: 'img/25.jpg', kw: ['movies'] },
 ];
 
-var gRandomLines = ['Hello World', 'No Pain No Gain', 'CSS?', 'OMG', 'LOL'];
+var gRandomLines = ['Hello World', 'No Pain No Gain', 'CSS? OMG!', 'LOL'];
 
 var gMemeActiveTextIdx = -1;
 var gCanvas = document.querySelector('canvas');
@@ -93,7 +93,7 @@ function createRandomMeme() {
     tempRandLines.splice(randNum1, 1);
     var randNum2 = getRandomInt(tempRandLines.length);
     gMeme.txts[1].txt = tempRandLines[randNum2];
-    gMeme.txts[1].yPos = 400;
+    gMeme.txts[1].yPos = 300;
 }
 
 function createBasicText() {
